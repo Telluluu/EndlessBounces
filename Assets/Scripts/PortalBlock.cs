@@ -2,31 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PortalBlock : Block
+namespace Gamelogic
 {
-    public PortalBlock targetPortalBlock;
-    private PortalBlockEffect portalBlockEffect;
-    public float portalCD = 1.0f;
-    public float lastPortalTime = 0.0f;
-
-    private void OnEnable()
+    public class PortalBlock : Block
     {
-        portalBlockEffect = gameObject.AddComponent<PortalBlockEffect>();
-        base.blockEffect = portalBlockEffect;
+        public PortalBlock targetPortalBlock;
+        private PortalBlockEffect portalBlockEffect;
+        public float portalCD = 1.0f;
+        public float lastPortalTime = 0.0f;
 
-        portalBlockEffect.outBlock = targetPortalBlock;
-        lastPortalTime = Time.time;
-    }
-
-    protected void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.gameObject.tag == "Ball")
+        private void OnEnable()
         {
-            if (Time.time - lastPortalTime > portalCD)
+            portalBlockEffect = gameObject.AddComponent<PortalBlockEffect>();
+            base.blockEffect = portalBlockEffect;
+
+            portalBlockEffect.outBlock = targetPortalBlock;
+
+            lastPortalTime = Time.time;
+        }
+
+        protected void OnTriggerEnter2D(Collider2D collider)
+        {
+            if (collider.gameObject.tag == "Ball")
             {
-                blockEffect?.ApplyEffect(collider.gameObject);
-                lastPortalTime = Time.time;
-                targetPortalBlock.lastPortalTime = lastPortalTime;
+                if (Time.time - lastPortalTime > portalCD)
+                {
+                    blockEffect?.ApplyEffect(collider.gameObject);
+                    lastPortalTime = Time.time;
+                    targetPortalBlock.lastPortalTime = lastPortalTime;
+                }
             }
         }
     }

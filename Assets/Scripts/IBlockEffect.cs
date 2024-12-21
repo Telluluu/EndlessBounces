@@ -80,16 +80,13 @@ public class GravitationBlockEffect : MonoBehaviour, IBlockEffect
 
     void IBlockEffect.ApplyEffect(GameObject ball)
     {
-        Debug.Log("Enter Gravitation Block Range");
-        Collider2D[] objInRange = Physics2D.OverlapCircleAll(transform.position, gravitationRadius);
-        foreach (var obj in objInRange)
+        Debug.Log(ball.name + " Enter Gravitation Block Range");
+
+        Rigidbody2D rb = ball.GetComponent<Rigidbody2D>();
+        if (rb != null)
         {
-            Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
-            if (rb != null)
-            {
-                Vector2 direction = (transform.position - obj.transform.position).normalized;
-                rb.AddForce(direction * gravitationStength);
-            }
+            Vector2 direction = (transform.position - ball.transform.position).normalized;
+            rb.AddForce(direction * gravitationStength, ForceMode2D.Force);
         }
     }
 }
