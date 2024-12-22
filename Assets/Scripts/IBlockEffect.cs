@@ -90,3 +90,21 @@ public class GravitationBlockEffect : MonoBehaviour, IBlockEffect
         }
     }
 }
+
+public class ConveryorBeltEffect : MonoBehaviour, IBlockEffect
+{
+    public Vector2 beltSpeed = new Vector2(1.0f, 0.0f);
+
+    void IBlockEffect.ApplyEffect(GameObject ball)
+    {
+        Debug.Log("Hit Converyor Belt Block");
+        var rb = ball.GetComponent<Rigidbody2D>();
+        rb.velocity = rb.velocity + beltSpeed;
+    }
+
+    public void RemoveEffect(GameObject ball)
+    {
+        var rb = ball.GetComponent<Rigidbody2D>();
+        rb.velocity = rb.velocity - beltSpeed;
+    }
+}

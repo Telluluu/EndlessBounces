@@ -21,7 +21,7 @@ namespace Gamelogic
             lastPortalTime = Time.time;
         }
 
-        protected void OnTriggerEnter2D(Collider2D collider)
+        protected new void OnTriggerEnter2D(Collider2D collider)
         {
             if (collider.gameObject.tag == "Ball")
             {

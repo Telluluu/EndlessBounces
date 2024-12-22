@@ -31,7 +31,8 @@ public class BallController : MonoBehaviour
             Vector2 targetVelocity = rb.velocity.normalized * speedLimit;
 
             // 平滑地将当前速度移动向目标速度
-            rb.velocity = Vector2.MoveTowards(rb.velocity, targetVelocity, decelerationRate * Time.deltaTime);
+            //rb.velocity = Vector2.MoveTowards(rb.velocity, targetVelocity, decelerationRate * Time.deltaTime);
+            rb.velocity = rb.velocity.normalized * speedLimit;
         }
     }
 }

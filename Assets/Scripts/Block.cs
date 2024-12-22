@@ -47,6 +47,16 @@ public class Block : MonoBehaviour
 
     protected void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("OnCollisionEnter2D");
+        if (collision.gameObject.tag == "Ball")
+        {
+            blockEffect?.ApplyEffect(collision.gameObject);
+        }
+    }
+
+    protected void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("OnTriggerEnter2D");
         if (collision.gameObject.tag == "Ball")
         {
             blockEffect?.ApplyEffect(collision.gameObject);
