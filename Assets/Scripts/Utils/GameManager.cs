@@ -7,9 +7,7 @@ namespace Gamelogic
 {
     public class GameManager : Singleton<GameManager>
     {
-        public void OnGetCoin()
-        {
-            Debug.Log("Get Coin");
-        }
+        public int getCoinCount = 0;
+        public int maxCoinCount = 3;
     }
 }

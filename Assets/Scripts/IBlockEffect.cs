@@ -51,7 +51,8 @@ public class LeafSpringBlockEffect : MonoBehaviour, IBlockEffect
     {
         Debug.Log("Hit Leaf Spring Block");
         var rb = ball.GetComponent<Rigidbody2D>();
-        rb.velocity = rb.velocity * 1.5f;
+        rb.velocity = rb.velocity.magnitude < 50.0f ? rb.velocity.normalized * 50.0f : rb.velocity;
+        Debug.Log(rb.velocity);
     }
 }
 
