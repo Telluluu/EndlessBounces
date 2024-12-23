@@ -49,7 +49,7 @@ namespace Gamelogic
 
         protected void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.tag == "Ball")
+            if (collision.gameObject.CompareTag("Ball"))
             {
                 blockEffect?.ApplyEffect(collision.gameObject);
             }
@@ -57,7 +57,7 @@ namespace Gamelogic
 
         protected void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.tag == "Ball")
+            if (collision.gameObject.CompareTag("Ball"))
             {
                 blockEffect?.ApplyEffect(collision.gameObject);
             }

@@ -21,7 +21,8 @@ namespace Gamelogic
             {
                 if (ApplicationIsQuitting)
                 {
-                    throw new System.Exception("Application is quiting");
+                    Debug.LogWarning("[Singleton] Instance '" + typeof(T) + "' already destroyed on Application is quiting");
+                    return null;
                 }
 
                 if (_instance == null)

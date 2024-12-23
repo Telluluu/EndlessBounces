@@ -9,10 +9,12 @@ namespace Gamelogic
     public class EventManager : Singleton<EventManager>
     {
         public UnityEvent onCoinCollected;
+        public UnityEvent<int> onScoreChanged;
 
-        private void OnDisable()
+        private void OnEnable()
         {
-            onCoinCollected?.RemoveAllListeners();
+            onCoinCollected = new UnityEvent();
+            onScoreChanged = new UnityEvent<int>();
         }
     }
 }

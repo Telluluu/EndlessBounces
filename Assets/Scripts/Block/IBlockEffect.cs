@@ -13,7 +13,6 @@ namespace Gamelogic
     {
         void IBlockEffect.ApplyEffect(GameObject ball)
         {
-            //Debug.Log("Hit Solid");
         }
     }
 
@@ -54,7 +53,7 @@ namespace Gamelogic
             Debug.Log("Hit Leaf Spring Block");
             var rb = ball.GetComponent<Rigidbody2D>();
             rb.velocity = rb.velocity.magnitude < 50.0f ? rb.velocity.normalized * 50.0f : rb.velocity;
-            Debug.Log(rb.velocity);
+            EventManager.Instance.onScoreChanged.Invoke(100);
         }
     }
 
@@ -63,13 +62,14 @@ namespace Gamelogic
         public Vector2 direction;
         public float force;
 
-        void IBlockEffect.ApplyEffect(UnityEngine.GameObject ball)
+        void IBlockEffect.ApplyEffect(GameObject ball)
         {
             var rb = ball.GetComponent<Rigidbody2D>();
 
             rb.velocity = rb.velocity.magnitude > force
                 ? rb.velocity.magnitude * direction.normalized
                 : force * direction.normalized;
+            EventManager.Instance.onScoreChanged.Invoke(100);
         }
     }
 
@@ -84,6 +84,7 @@ namespace Gamelogic
 
             Debug.Log("Hit Portal Block");
             ball.transform.position = outBlock.transform.position;
+            EventManager.Instance.onScoreChanged.Invoke(100);
             //var rb = ball.GetComponent<Rigidbody2D>();
             //Vector3 offset = new Vector3(rb.velocity.x, rb.velocity.y, 0.0f);
             //Vector3 bbSize = outBlock.GetComponent<BoxCollider2D>().bounds.size;
@@ -98,8 +99,6 @@ namespace Gamelogic
 
         void IBlockEffect.ApplyEffect(GameObject ball)
         {
-            Debug.Log(ball.name + " Enter Gravitation Block Range");
-
             Rigidbody2D rb = ball.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
