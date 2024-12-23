@@ -15,7 +15,7 @@ namespace Gamelogic
         {
             if (collider.gameObject.CompareTag("Ball"))
             {
-                collider.GetComponent<BallController>().CollectCoin();
+                EventManager.Instance.onCoinCollected?.Invoke();
                 Destroy(this.gameObject);
             }
         }

@@ -13,36 +13,33 @@ namespace Gamelogic
         public float speedLimit;
         public float decelerationRate = 5.0f;
 
-        public UnityEvent onCoinCollected;
-
         private void Start()
         {
             rb = GetComponent<Rigidbody2D>();
-            rb.velocity = Vector2.right * 50.0f;
         }
 
         private void FixedUpdate()
         {
-            if (Keyboard.current.aKey.isPressed)
-            {
-                rb.AddForce(Vector2.left * force, ForceMode2D.Impulse);
-            }
-            if (Keyboard.current.dKey.isPressed)
-            {
-                rb.AddForce(Vector2.right * force, ForceMode2D.Impulse);
-            }
-            if (rb.velocity.magnitude > speedLimit)
-            {
-                // 平滑地将当前速度移动向目标速度
-                //Vector2 targetVelocity = rb.velocity.normalized * speedLimit;
-                //rb.velocity = Vector2.MoveTowards(rb.velocity, targetVelocity, decelerationRate * Time.deltaTime);
-                rb.velocity = rb.velocity.normalized * speedLimit;
-            }
+            //if (Keyboard.current.aKey.isPressed)
+            //{
+            //    rb.AddForce(Vector2.left * force, ForceMode2D.Impulse);
+            //}
+            //if (Keyboard.current.dKey.isPressed)
+            //{
+            //    rb.AddForce(Vector2.right * force, ForceMode2D.Impulse);
+            //}
+            //if (rb.velocity.magnitude > speedLimit)
+            //{
+            //    // 平滑地将当前速度移动向目标速度
+            //    //Vector2 targetVelocity = rb.velocity.normalized * speedLimit;
+            //    //rb.velocity = Vector2.MoveTowards(rb.velocity, targetVelocity, decelerationRate * Time.deltaTime);
+            //    rb.velocity = rb.velocity.normalized * speedLimit;
+            //}
         }
 
-        public void CollectCoin()
+        public void Launch(Vector2 dir, float speed)
         {
-            onCoinCollected?.Invoke();
+            rb.velocity = dir.normalized * speed;
         }
     }
 }

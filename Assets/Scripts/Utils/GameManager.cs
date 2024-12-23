@@ -9,5 +9,11 @@ namespace Gamelogic
     {
         public int getCoinCount = 0;
         public int maxCoinCount = 3;
+
+        private void ResponToCoinCollected()
+        {
+            Debug.Log("Coin Collected");
+            this.getCoinCount++;
+        }
     }
 }

@@ -3,61 +3,64 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Block : MonoBehaviour
+namespace Gamelogic
 {
-    public enum BlockType
+    public class Block : MonoBehaviour
     {
-        Solid,
-        Fragile,
-        Spike,
-        Stop,
-        Interactable
-    }
-
-    public BlockType blockType;
-
-    public IBlockEffect blockEffect;
-
-    private void OnEnable()
-    {
-        switch (blockType)
+        public enum BlockType
         {
-            case BlockType.Solid:
-
-                blockEffect = gameObject.AddComponent<SolidBlockEffect>();
-                break;
-
-            case BlockType.Fragile:
-                blockEffect = gameObject.AddComponent<FragileBlockEffect>();
-                break;
-
-            case BlockType.Spike:
-                blockEffect = gameObject.AddComponent<SpikeBlockEffect>();
-                break;
-
-            case BlockType.Stop:
-                blockEffect = gameObject.AddComponent<StopBlockEffect>();
-                break;
-
-            case BlockType.Interactable:
-                blockEffect = null;
-                break;
+            Solid,
+            Fragile,
+            Spike,
+            Stop,
+            Interactable
         }
-    }
 
-    protected void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Ball")
+        public BlockType blockType;
+
+        public IBlockEffect blockEffect;
+
+        private void OnEnable()
         {
-            blockEffect?.ApplyEffect(collision.gameObject);
+            switch (blockType)
+            {
+                case BlockType.Solid:
+
+                    blockEffect = gameObject.AddComponent<SolidBlockEffect>();
+                    break;
+
+                case BlockType.Fragile:
+                    blockEffect = gameObject.AddComponent<FragileBlockEffect>();
+                    break;
+
+                case BlockType.Spike:
+                    blockEffect = gameObject.AddComponent<SpikeBlockEffect>();
+                    break;
+
+                case BlockType.Stop:
+                    blockEffect = gameObject.AddComponent<StopBlockEffect>();
+                    break;
+
+                case BlockType.Interactable:
+                    blockEffect = null;
+                    break;
+            }
         }
-    }
 
-    protected void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Ball")
+        protected void OnCollisionEnter2D(Collision2D collision)
         {
-            blockEffect?.ApplyEffect(collision.gameObject);
+            if (collision.gameObject.tag == "Ball")
+            {
+                blockEffect?.ApplyEffect(collision.gameObject);
+            }
+        }
+
+        protected void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.tag == "Ball")
+            {
+                blockEffect?.ApplyEffect(collision.gameObject);
+            }
         }
     }
 }

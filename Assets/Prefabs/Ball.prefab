@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 1
-  speedLimit: 3
+  speedLimit: 200
   decelerationRate: 5
   onCoinCollected:
     m_PersistentCalls:

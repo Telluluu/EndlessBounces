@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4792454485718753186}
   - component: {fileID: 7087202262928325783}
   - component: {fileID: 5062420105626353766}
+  - component: {fileID: -4392282005847007810}
   m_Layer: 0
   m_HasEditorInfo: 1
   m_Name: LeafSpring
@@ -133,3 +134,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-4392282005847007810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7391102386148933146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 248d91afd0556f04f8c600a923628c43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockType: 4
