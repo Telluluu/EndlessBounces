@@ -43,7 +43,7 @@ namespace Gamelogic
 
         public void ComboMagnificate()
         {
-            comboMagnification *= 1.1f;
+            comboMagnification += 0.1f;
         }
 
         private float CalculateTotalScore()

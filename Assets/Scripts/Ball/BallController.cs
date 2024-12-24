@@ -63,7 +63,6 @@ namespace Gamelogic
                 else
                 {
                     EventManager.Instance.onScoreChanged.Invoke(50);
-                    Debug.Log(speedInDir);
                 }
             }
 
@@ -77,6 +76,7 @@ namespace Gamelogic
                 combo++;
                 if (combo >= 3)
                 {
+                    combo = 0;
                     GameManager.Instance.ComboMagnificate();
                 }
             }

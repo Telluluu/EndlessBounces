@@ -8,13 +8,14 @@ namespace Gamelogic
 {
     public class EventManager : Singleton<EventManager>
     {
-        public UnityEvent onCoinCollected;
-        public UnityEvent<int> onScoreChanged;
+        public UnityEvent onCoinCollected = new UnityEvent();
+
+        public UnityEvent<int> onScoreChanged = new UnityEvent<int>();
 
         private void OnEnable()
         {
-            onCoinCollected = new UnityEvent();
-            onScoreChanged = new UnityEvent<int>();
+            //onCoinCollected = new UnityEvent();
+            //onScoreChanged = new UnityEvent<int>();
         }
     }
 }
