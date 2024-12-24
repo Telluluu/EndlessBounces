@@ -16,6 +16,8 @@ namespace Gamelogic
             Interactable
         }
 
+        public int blockScore = 50;
+
         public BlockType blockType;
 
         public IBlockEffect blockEffect;

@@ -12,10 +12,12 @@ namespace Gamelogic
 
         public UnityEvent<int> onScoreChanged = new UnityEvent<int>();
 
-        private void OnEnable()
+        // 飘字文本，字体大小（倍率），颜色
+        public UnityEvent<string, float, Color> onTextPoped = new UnityEvent<string, float, Color>();
+
+        private void Awake()
         {
-            //onCoinCollected = new UnityEvent();
-            //onScoreChanged = new UnityEvent<int>();
+            DontDestroyOnLoad(this);
         }
     }
 }

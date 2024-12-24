@@ -62,22 +62,29 @@ namespace Gamelogic
                     return;
                 else
                 {
-                    EventManager.Instance.onScoreChanged.Invoke(50);
+                    EventManager.Instance.onScoreChanged.Invoke(block.blockScore);
+                    // EventManager.Instance.onTextPoped.Invoke(block.blockScore.ToString(), 1.0f + combo / 3.0f);
                 }
+            }
+            else if (block != null && block.blockType == Block.BlockType.Fragile)
+            {
+                EventManager.Instance.onScoreChanged.Invoke(block.blockScore);
             }
 
             lastCollisionTime = Time.time;
             if (Time.time - lastCollisionTime > comboInterval)
             {
                 combo = 1;
+                EventManager.Instance.onTextPoped.Invoke(block.blockScore.ToString(), 1.0f, Color.white);
             }
             else
             {
                 combo++;
+                EventManager.Instance.onTextPoped.Invoke(block.blockScore.ToString(), 1.0f + combo / 3.0f, Color.white);
                 if (combo >= 3)
                 {
-                    combo = 0;
                     GameManager.Instance.ComboMagnificate();
+                    combo = 0;
                 }
             }
         }

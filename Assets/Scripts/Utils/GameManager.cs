@@ -14,6 +14,11 @@ namespace Gamelogic
 
         public float comboMagnification = 1.0f;
 
+        private void Awake()
+        {
+            DontDestroyOnLoad(this);
+        }
+
         private void Start()
         {
             if (EventManager.Instance.onCoinCollected == null)
@@ -44,9 +49,11 @@ namespace Gamelogic
         public void ComboMagnificate()
         {
             comboMagnification += 0.1f;
+            comboMagnification = Mathf.Round(comboMagnification * 10) / 10f;
+            EventManager.Instance.onTextPoped.Invoke("x" + comboMagnification.ToString(), 1.5f, Color.yellow);
         }
 
-        private float CalculateTotalScore()
+        public float CalculateTotalScore()
         {
             float coinMagnification = 1.0f;
             if (getCoinCount == 1)
