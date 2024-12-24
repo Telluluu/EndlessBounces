@@ -17,6 +17,8 @@ namespace Gamelogic
         public float lastCollisionTime;
         public float comboInterval = 1.0f;
         public int combo = 0;
+        public bool isStopped = false;
+        public bool isLaunched = false;
 
         private void Start()
         {
@@ -44,10 +46,16 @@ namespace Gamelogic
                 //rb.velocity = Vector2.MoveTowards(rb.velocity, targetVelocity, decelerationRate * Time.deltaTime);
                 rb.velocity = rb.velocity.normalized * speedLimit;
             }
+            else if (isLaunched && rb.velocity.magnitude < 0.1f)
+            {
+                rb.velocity = Vector2.zero;
+                isStopped = true;
+            }
         }
 
         public void Launch(Vector2 dir, float speed)
         {
+            isLaunched = true;
             rb.velocity = dir.normalized * speed;
         }
 

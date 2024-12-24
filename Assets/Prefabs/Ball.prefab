@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 8659904075396462606}
   - component: {fileID: 3063472492565167096}
   - component: {fileID: 5433394658832985101}
+  - component: {fileID: 8616282589949694867}
+  - component: {fileID: 4945688439337761188}
   m_Layer: 0
   m_HasEditorInfo: 1
   m_Name: Ball
@@ -84,7 +86,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -138,9 +140,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.25
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.5
   m_Material: {fileID: 6200000, guid: 2d09e75689cee5d4982458598e5644b8, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -167,3 +169,39 @@ MonoBehaviour:
   force: 1
   speedLimit: 200
   decelerationRate: 5
+  lastCollisionTime: 0
+  comboInterval: 1
+  combo: 0
+--- !u!95 &8616282589949694867
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187719589812814995}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 42aed628af919cb4dbee98929928ff28, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4945688439337761188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187719589812814995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce3fa635050f04468e20a02d7eb86f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

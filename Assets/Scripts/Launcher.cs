@@ -18,15 +18,15 @@ namespace Gamelogic
 
         public float blinkSpeed = 1.0f;
 
-        private Renderer renderer;
+        private Renderer _renderer;
         private Color originalColor;
         private bool blinking = false;
 
         private void Start()
         {
-            if (renderer == null)
-                renderer = GetComponent<Renderer>();
-            originalColor = renderer.material.color;
+            if (_renderer == null)
+                _renderer = GetComponent<Renderer>();
+            originalColor = _renderer.material.color;
             StartBlink();
         }
 
@@ -44,7 +44,7 @@ namespace Gamelogic
                 float t = Mathf.PingPong(Time.time * blinkSpeed, 1f);
 
                 // 插值计算颜色
-                renderer.material.color = Color.Lerp(originalColor, blinkColor, t);
+                GetComponent<Renderer>().material.color = Color.Lerp(originalColor, blinkColor, t);
                 yield return new WaitForSeconds(blinkInterval);
             }
         }

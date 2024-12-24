@@ -14,19 +14,44 @@ namespace Gamelogic
 
         public float comboMagnification = 1.0f;
 
+        public float goal = 999.0f;
+
+        private BallController _ball;
+
         private void Awake()
         {
             DontDestroyOnLoad(this);
-        }
-
-        private void Start()
-        {
-            if (EventManager.Instance.onCoinCollected == null)
-            {
-                Debug.Log("EventManager.onCoinCollected is null");
-            }
             EventManager.Instance.onCoinCollected.AddListener(ResponToCoinCollected);
             EventManager.Instance.onScoreChanged.AddListener(ResponToScoreChanged);
+            EventManager.Instance.onGameWin.AddListener(TestWin);
+            EventManager.Instance.onGameLose.AddListener(TestLose);
+            _ball = FindAnyObjectByType<BallController>();
+            if (_ball == null)
+            {
+                throw new Exception("GameManager: Ball not found");
+            }
+        }
+
+        private void Update()
+        {
+            if (CalculateTotalScore() >= goal)
+            {
+                EventManager.Instance.onGameWin.Invoke();
+            }
+            else if (_ball.isLaunched && _ball.isStopped)
+            {
+                EventManager.Instance.onGameLose.Invoke();
+            }
+        }
+
+        private void TestWin()
+        {
+            Debug.Log("Win");
+        }
+
+        private void TestLose()
+        {
+            Debug.Log("Lose");
         }
 
         private void OnDisable()
@@ -37,7 +62,6 @@ namespace Gamelogic
 
         private void ResponToCoinCollected()
         {
-            Debug.Log("Coin Collected");
             this.getCoinCount++;
         }
 
@@ -53,7 +77,7 @@ namespace Gamelogic
             EventManager.Instance.onTextPoped.Invoke("x" + comboMagnification.ToString(), 1.5f, Color.yellow);
         }
 
-        public float CalculateTotalScore()
+        public float CalculateCoinMagnification()
         {
             float coinMagnification = 1.0f;
             if (getCoinCount == 1)
@@ -64,11 +88,20 @@ namespace Gamelogic
             {
                 coinMagnification = 1.5f;
             }
-            else
+            else if (getCoinCount == 3)
             {
                 coinMagnification = 2.0f;
             }
-            return catapultScore * comboMagnification * coinMagnification;
+            else
+            {
+                coinMagnification = 1.0f;
+            }
+            return coinMagnification;
+        }
+
+        public float CalculateTotalScore()
+        {
+            return catapultScore * comboMagnification * CalculateCoinMagnification();
         }
     }
 }
