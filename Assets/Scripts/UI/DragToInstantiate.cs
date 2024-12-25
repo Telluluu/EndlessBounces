@@ -7,12 +7,13 @@ using UnityEngine.UI;
 
 public class DragToInstantiate : MonoBehaviour, IDragHandler, IEndDragHandler
 {
-    public Transform rootUIPanel;
+    private Transform rootUIPanel;
     public GameObject prefab;
+    public int prefabCount = 2;
     public GameObject icon;
-    public TMP_Text itemCount;
-    public RawImage rawImage;
-    public Camera sceneCamera;
+    public TMP_Text itemCountText;
+    private RawImage rawImage;
+    private Camera sceneCamera;
     private RectTransform _iconRectTransform;
 
     private GameObject _iconGO;
@@ -23,6 +24,7 @@ public class DragToInstantiate : MonoBehaviour, IDragHandler, IEndDragHandler
         rootUIPanel = GameObject.Find("RootPanel").transform;
         sceneCamera = GameObject.Find("GameScene Camera").GetComponent<Camera>();
         rawImage = GameObject.Find("RawImage").GetComponent<RawImage>();
+        itemCountText.text = prefabCount.ToString();
         _iconGO = Instantiate(icon);
         _iconGO.transform.SetParent(rootUIPanel);
         _iconGO.transform.position = rootUIPanel.transform.position + Vector3.right * 10000000.0f;
@@ -72,11 +74,11 @@ public class DragToInstantiate : MonoBehaviour, IDragHandler, IEndDragHandler
             return;
         }
 
-        itemCount.text = (int.Parse(itemCount.text) - 1).ToString();
+        itemCountText.text = (int.Parse(itemCountText.text) - 1).ToString();
 
         _iconGO.transform.position = rootUIPanel.transform.position + Vector3.right * 10000000.0f;
 
-        if (int.Parse(itemCount.text) <= 0)
+        if (int.Parse(itemCountText.text) <= 0)
         {
             Destroy(gameObject);
         }

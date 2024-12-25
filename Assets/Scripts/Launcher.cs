@@ -60,5 +60,16 @@ namespace Gamelogic
                 blinking = false;
             }
         }
+
+        public void TryLaunch()
+        {
+            if (!isLaunched)
+            {
+                var ballController = FindAnyObjectByType<BallController>();
+                ballController.Launch(launchDir, launchSpeed);
+                isLaunched = true;
+                blinking = false;
+            }
+        }
     }
 }
