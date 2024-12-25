@@ -5,7 +5,38 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.scene
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
+    path: Assets/Scenes/Demo1.scene
+    guid: a92d3662b61629842b9057a163d6648d
+  - enabled: 0
+    path: Assets/Scenes/Demo2.scene
+    guid: 864bd656b9232cc41bb3e342eebf9874
+  - enabled: 0
+    path: Assets/Scenes/12.22.scene
+    guid: 2c55c1103b329c34a9859c44994b3b86
+  - enabled: 0
+    path: Assets/Scenes/Title.scene
+    guid: bbb592f2d5987b64794b4dba5b7ca0fe
+  - enabled: 1
+    path: Assets/Scenes/Title_Tilemap.scene
+    guid: 88cc5bad57faaaa46bbee05bf2c48ec1
+  - enabled: 1
+    path: Assets/Scenes/Level1.scene
+    guid: ffbe4bdecb6fcdd468dd2a583fbb24cc
+  - enabled: 0
+    path: Assets/Scenes/TestInScene1.scene
+    guid: 2889cc65502a51f4087c0f87ef86d9c8
+  - enabled: 0
+    path: Assets/Scenes/PhysicTest.scene
+    guid: ed15fcdbf413c474e9a6e58eff9847c5
   m_configObjects: {}
+  m_SlimFeaturesWeixinMiniGame:
+    AllocateOverhead: 1
+    DecompressASTC: 0
+    DecompressDXT: 1
+    DecompressETC: 1
+    FreeTypeSfntPng: 1
+    LightProbe: 2

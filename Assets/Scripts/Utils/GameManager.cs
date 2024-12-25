@@ -52,11 +52,21 @@ namespace Gamelogic
         private void TestWin()
         {
             Debug.Log("Win");
+            var rootPanel = GameObject.Find("RootPanel").GetComponent<GameUI.UI>();
+            var ballRb = _ball.GetComponent<Rigidbody2D>();
+            ballRb.isKinematic = true;
+            ballRb.velocity = Vector2.zero;
+            rootPanel.settlePanel.gameObject.SetActive(true);
         }
 
         private void TestLose()
         {
             Debug.Log("Lose");
+            var rootPanel = GameObject.Find("RootPanel").GetComponent<GameUI.UI>();
+            var ballRb = _ball.GetComponent<Rigidbody2D>();
+            ballRb.isKinematic = true;
+            ballRb.velocity = Vector2.zero;
+            rootPanel.settlePanel.gameObject.SetActive(true);
         }
 
         private void OnDisable()

@@ -9,9 +9,23 @@ namespace Gamelogic
 {
     public class LevelManager : Singleton<LevelManager>
     {
-        // Start is called before the first frame update
         private void Start()
         {
+            DontDestroyOnLoad(gameObject);
+        }
+
+        public void NextLevel()
+        {
+        }
+
+        public void ReturnToTitle()
+        {
+            Debug.Log("ReturnToTitle");
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            if (currentSceneName == "Scenes/Title_Tilemap")
+                Restart();
+            else
+                SceneManager.LoadScene("Scenes/Title_Tilemap");
         }
 
         public void Restart()
