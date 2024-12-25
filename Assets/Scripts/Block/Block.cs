@@ -18,6 +18,11 @@ namespace Gamelogic
 
         public int blockScore = 50;
 
+        [Range(0.0f, 1.0f)]
+        public float fragileDecelerate = 0.0f;
+
+        public float breakFragileSpeed = 3.0f;
+
         public BlockType blockType;
 
         public IBlockEffect blockEffect;
@@ -32,7 +37,9 @@ namespace Gamelogic
                     break;
 
                 case BlockType.Fragile:
-                    blockEffect = gameObject.AddComponent<FragileBlockEffect>();
+                    var fragile = gameObject.AddComponent<FragileBlockEffect>();
+                    fragile.fragileDecelerate = fragileDecelerate;
+                    blockEffect = fragile;
                     break;
 
                 case BlockType.Spike:
@@ -61,6 +68,12 @@ namespace Gamelogic
         {
             if (collision.gameObject.CompareTag("Ball"))
             {
+                if (blockType == BlockType.Fragile)
+                {
+                    var rb = collision.GetComponent<Rigidbody2D>();
+                    if (rb.velocity.magnitude > breakFragileSpeed)
+                        blockEffect?.ApplyEffect(collision.gameObject);
+                }
                 blockEffect?.ApplyEffect(collision.gameObject);
             }
         }

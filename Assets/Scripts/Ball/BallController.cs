@@ -21,6 +21,8 @@ namespace Gamelogic
         public bool isStopped = false;
         public bool isLaunched = false;
 
+        public float getScoreSpeed = 4.0f;
+
         private void Start()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -73,7 +75,7 @@ namespace Gamelogic
 
             if (block.blockType == Block.BlockType.Solid)
             {
-                if (speedInDir < 2.0f)
+                if (speedInDir < getScoreSpeed)
                     return;
                 else
                 {

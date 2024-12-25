@@ -18,11 +18,14 @@ namespace Gamelogic
 
     public class FragileBlockEffect : MonoBehaviour, IBlockEffect
     {
+        public float fragileDecelerate = 1.0f;
+        public float breakSpeed = 5.0f;
+
         void IBlockEffect.ApplyEffect(GameObject ball)
         {
             Debug.Log("Hit Fragile Block");
             var rb = ball.GetComponent<Rigidbody2D>();
-            rb.velocity = rb.velocity * 0.5f;
+            rb.velocity = rb.velocity * (1.0f - fragileDecelerate);
             Destroy(this.gameObject);
         }
     }
