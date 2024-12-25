@@ -26,6 +26,7 @@ namespace Gamelogic
         private void Start()
         {
             rb = GetComponent<Rigidbody2D>();
+            rb.isKinematic = true;
         }
 
         private void Update()
@@ -61,6 +62,7 @@ namespace Gamelogic
         public void Launch(Vector2 dir, float speed)
         {
             isLaunched = true;
+            rb.isKinematic = false;
             rb.velocity = dir.normalized * speed;
         }
 
