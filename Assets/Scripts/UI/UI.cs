@@ -97,7 +97,7 @@ namespace UI
 
         private void UpdateScoreInfo(int deltaScore)
         {
-            comboMagnification.text = "x" + Gamelogic.GameManager.Instance.comboMagnification.ToString("F2");
+            comboMagnification.text = "x" + Gamelogic.GameManager.Instance.comboMagnification.ToString("F1");
 
             scoreValue.text = (Gamelogic.GameManager.Instance.catapultScore * Gamelogic.GameManager.Instance.comboMagnification).ToString("F0");
             finalValue.text = Gamelogic.GameManager.Instance.CalculateTotalScore().ToString("F0");
