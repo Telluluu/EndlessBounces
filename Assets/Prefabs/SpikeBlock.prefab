@@ -147,4 +147,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockScore: 50
-  blockType: 0
+  blockType: 2
