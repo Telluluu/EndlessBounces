@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine.UI;
 using Gamelogic;
 
-namespace UI
+namespace GameUI
 {
     public class UI : MonoBehaviour
     {
@@ -36,6 +36,8 @@ namespace UI
 
         public float shakeAmplitude = 5.0f;  // 摇摆的幅度
         public float shakeSpeed = 2f;  // 摇摆的速度
+
+        public SettlePanel settlePanel;
 
         private void Start()
         {
