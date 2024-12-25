@@ -97,10 +97,10 @@ namespace UI
 
         private void UpdateScoreInfo(int deltaScore)
         {
-            comboMagnification.text = "x" + Gamelogic.GameManager.Instance.comboMagnification.ToString();
+            comboMagnification.text = "x" + Gamelogic.GameManager.Instance.comboMagnification.ToString("F2");
 
-            scoreValue.text = (Gamelogic.GameManager.Instance.catapultScore * Gamelogic.GameManager.Instance.comboMagnification).ToString();
-            finalValue.text = Gamelogic.GameManager.Instance.CalculateTotalScore().ToString("");
+            scoreValue.text = (Gamelogic.GameManager.Instance.catapultScore * Gamelogic.GameManager.Instance.comboMagnification).ToString("F0");
+            finalValue.text = Gamelogic.GameManager.Instance.CalculateTotalScore().ToString("F0");
         }
 
         private void PopUpScoreDelta(int deltaScore)
@@ -118,7 +118,7 @@ namespace UI
         private void PopUpCoinDelta()
         {
             float deltaCoinMagnification = Gamelogic.GameManager.Instance.CalculateCoinMagnification() - float.Parse(coinsMagnification.text);
-            TextPoper.Instance.FloatingText(coinsMagnificationPopTrans, "+" + deltaCoinMagnification.ToString(), 1.0f, Color.white);
+            TextPoper.Instance.FloatingText(coinsMagnificationPopTrans, "+" + deltaCoinMagnification.ToString("F2"), 1.0f, Color.white);
 
             float deltaFinalScore = Gamelogic.GameManager.Instance.CalculateTotalScore() - float.Parse(finalValue.text);
             TextPoper.Instance.FloatingText(finalValuePopTrans, "+" + deltaFinalScore.ToString("F0"), 1.0f, Color.white);
@@ -127,7 +127,6 @@ namespace UI
         private void UpdateCoinInfo()
         {
             int coinCount = Gamelogic.GameManager.Instance.getCoinCount;
-            Debug.Log("CoinCount = " + coinCount);
             switch (coinCount)
             {
                 case 0:
