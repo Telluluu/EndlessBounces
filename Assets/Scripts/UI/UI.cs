@@ -112,7 +112,7 @@ namespace UI
             TextPoper.Instance.FloatingText(scoreValuePopTrans, "+" + delta.ToString(), 1.0f, Color.white);
 
             float deltaFinalScore = delta * GameManager.Instance.CalculateCoinMagnification();
-            TextPoper.Instance.FloatingText(finalValuePopTrans, "+" + deltaFinalScore.ToString("F2"), 1.0f, Color.white);
+            TextPoper.Instance.FloatingText(finalValuePopTrans, "+" + deltaFinalScore.ToString("F0"), 1.0f, Color.white);
         }
 
         private void PopUpCoinDelta()
@@ -121,7 +121,7 @@ namespace UI
             TextPoper.Instance.FloatingText(coinsMagnificationPopTrans, "+" + deltaCoinMagnification.ToString(), 1.0f, Color.white);
 
             float deltaFinalScore = Gamelogic.GameManager.Instance.CalculateTotalScore() - float.Parse(finalValue.text);
-            TextPoper.Instance.FloatingText(finalValuePopTrans, "+" + deltaFinalScore.ToString("F2"), 1.0f, Color.white);
+            TextPoper.Instance.FloatingText(finalValuePopTrans, "+" + deltaFinalScore.ToString("F0"), 1.0f, Color.white);
         }
 
         private void UpdateCoinInfo()
