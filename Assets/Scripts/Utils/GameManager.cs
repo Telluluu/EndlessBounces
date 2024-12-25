@@ -62,7 +62,8 @@ namespace Gamelogic
 
         private void ResponToCoinCollected()
         {
-            this.getCoinCount++;
+            Debug.Log("Coin Collected");
+            this.getCoinCount += 1;
         }
 
         private void ResponToScoreChanged(int scoreDelta)

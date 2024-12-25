@@ -38,9 +38,6 @@ public class BallAnimation : MonoBehaviour
 
         if (Vector2.Dot(dir, rb.velocity) > 5.0f)
         {
-            Debug.Log("Normal: " + collision.contacts[0].normal);
-            Debug.Log(Vector2.Dot(dir, rb.velocity));
-
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90f;
 
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -64,34 +61,32 @@ public class BallAnimation : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        var dir = collision.transform.position - transform.position;
+        //if (Vector2.Dot(dir, rb.velocity) > 5.0f)
+        //{
+        //    Vector2 direction = (Vector2)collision.transform.position - (Vector2)transform.position;
 
-        if ((rb.velocity * dir.normalized).magnitude > 2.0f)
-        {
-            Vector2 direction = (Vector2)collision.transform.position - (Vector2)transform.position;
+        //    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        //    transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        //    // 随机碰撞效果
+        //    int randomInteger = Random.Range(0, 3);
+        //    switch (randomInteger)
+        //    {
+        //        case 0:
+        //            animator.SetTrigger("Touch");
+        //            break;
 
-            // 随机碰撞效果
-            int randomInteger = Random.Range(0, 3);
-            switch (randomInteger)
-            {
-                case 0:
-                    animator.SetTrigger("Touch");
-                    break;
+        //        case 1:
+        //            animator.SetTrigger("Touch2");
+        //            break;
 
-                case 1:
-                    animator.SetTrigger("Touch2");
-                    break;
-
-                case 2:
-                    animator.SetTrigger("Touch3");
-                    break;
-            }
-        }
+        //        case 2:
+        //            animator.SetTrigger("Touch3");
+        //            break;
+        //    }
+        //}
     }
 }

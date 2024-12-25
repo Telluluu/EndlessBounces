@@ -52,7 +52,6 @@ namespace Gamelogic
 
         void IBlockEffect.ApplyEffect(GameObject ball)
         {
-            Debug.Log("Hit Leaf Spring Block");
             var rb = ball.GetComponent<Rigidbody2D>();
             rb.velocity = rb.velocity.magnitude < force ? rb.velocity.normalized * force : rb.velocity;
             EventManager.Instance.onScoreChanged.Invoke(100);

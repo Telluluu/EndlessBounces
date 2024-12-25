@@ -37,22 +37,17 @@ namespace UI
         public float shakeAmplitude = 5.0f;  // 摇摆的幅度
         public float shakeSpeed = 2f;  // 摇摆的速度
 
-        private void OnEnable()
+        private void Start()
         {
             normalColor = coin_1.color;
             gotColor = new Color(coin_1.color.r, coin_1.color.g, coin_1.color.b, 255.0f);
-            Gamelogic.EventManager.Instance.onCoinCollected.AddListener(PopUpCoinDelta);
-            Gamelogic.EventManager.Instance.onCoinCollected.AddListener(UpdateCoinInfo);
-            Gamelogic.EventManager.Instance.onCoinCollected.AddListener(UpdateRank);
-            Gamelogic.EventManager.Instance.onScoreChanged.AddListener(PopUpScoreDelta);
-            Gamelogic.EventManager.Instance.onScoreChanged.AddListener(UpdateScoreInfo);
-            Gamelogic.EventManager.Instance.onScoreChanged.AddListener((int deltaScore) => UpdateRank());
 
             Init();
         }
 
         private void Init()
         {
+            Debug.Log("UI Init");
             infoText.text = "1-1";
             goalValue.text = Gamelogic.GameManager.Instance.goal.ToString();
             finalValue.text = "0";
@@ -60,6 +55,14 @@ namespace UI
             scoreValue.text = "0";
             coinsMagnification.text = "1.0";
             rank.text = "B";
+
+            Gamelogic.EventManager.Instance.onCoinCollected.AddListener(PopUpCoinDelta);
+            Gamelogic.EventManager.Instance.onCoinCollected.AddListener(UpdateCoinInfo);
+            Gamelogic.EventManager.Instance.onCoinCollected.AddListener(UpdateRank);
+
+            Gamelogic.EventManager.Instance.onScoreChanged.AddListener(PopUpScoreDelta);
+            Gamelogic.EventManager.Instance.onScoreChanged.AddListener(UpdateScoreInfo);
+            Gamelogic.EventManager.Instance.onScoreChanged.AddListener((int deltaScore) => UpdateRank());
         }
 
         private void Update()
@@ -125,6 +128,7 @@ namespace UI
         private void UpdateCoinInfo()
         {
             int coinCount = Gamelogic.GameManager.Instance.getCoinCount;
+            Debug.Log("CoinCount = " + coinCount);
             switch (coinCount)
             {
                 case 0:

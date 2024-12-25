@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using System;
 using Unity.VisualScripting;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace Gamelogic
 {
@@ -63,10 +64,14 @@ namespace Gamelogic
 
         private void OnCollisionEnter2D(Collision2D other)
         {
+            Block block = other.gameObject.GetComponent<Block>();
+            if (block == null)
+                return;
+
             var dir = other.contacts[0].normal;
             var speedInDir = Vector2.Dot(rb.velocity, dir.normalized);
-            Block block = other.gameObject.GetComponent<Block>();
-            if (block == null || block.blockType != Block.BlockType.Interactable)
+
+            if (block.blockType != Block.BlockType.Interactable)
             {
                 if (speedInDir < 2.0f)
                     return;
@@ -76,9 +81,15 @@ namespace Gamelogic
                     // EventManager.Instance.onTextPoped.Invoke(block.blockScore.ToString(), 1.0f + combo / 3.0f);
                 }
             }
-            else if (block != null && block.blockType == Block.BlockType.Fragile)
+            else if (block.blockType == Block.BlockType.Fragile)
             {
                 EventManager.Instance.onScoreChanged.Invoke(block.blockScore);
+            }
+            else if (block.blockType == Block.BlockType.Stop)
+            {
+                combo = 0;
+                lastCollisionTime = Time.time;
+                return;
             }
 
             lastCollisionTime = Time.time;
