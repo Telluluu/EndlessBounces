@@ -693,7 +693,7 @@ GameObject:
   - component: {fileID: 2001868075542142649}
   m_Layer: 5
   m_HasEditorInfo: 1
-  m_Name: ScoreValue
+  m_Name: CoinMagnification
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1092,7 +1092,7 @@ GameObject:
   - component: {fileID: 6726767501537481392}
   m_Layer: 5
   m_HasEditorInfo: 1
-  m_Name: ScoreValue
+  m_Name: FinalValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1430,7 +1430,7 @@ GameObject:
   - component: {fileID: 4427608895190614582}
   m_Layer: 5
   m_HasEditorInfo: 1
-  m_Name: ScorePanel (3)
+  m_Name: RankPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2474,7 +2474,7 @@ GameObject:
   - component: {fileID: 2463252809952924603}
   m_Layer: 5
   m_HasEditorInfo: 1
-  m_Name: ScoreIcon
+  m_Name: FinalIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3215,7 +3215,7 @@ GameObject:
   - component: {fileID: 1793453662498918787}
   m_Layer: 5
   m_HasEditorInfo: 1
-  m_Name: ScoreIcon
+  m_Name: RankIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3348,6 +3348,7 @@ GameObject:
   - component: {fileID: 5081377336004205088}
   - component: {fileID: 8963718162041157985}
   - component: {fileID: 5775691090279444748}
+  - component: {fileID: 5180231584993453727}
   m_Layer: 5
   m_HasEditorInfo: 1
   m_Name: RawImage
@@ -3372,9 +3373,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 752, y: 425}
+  m_AnchoredPosition: {x: 3.2000122, y: 3.8000183}
   m_SizeDelta: {x: 1920, y: 1080}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!222 &8963718162041157985
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3410,6 +3411,18 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &5180231584993453727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2946425164237575284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 767ae84c85b7431469e513955ed783ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3110773862395830301
 GameObject:
   m_ObjectHideFlags: 0
@@ -3514,7 +3527,7 @@ GameObject:
   - component: {fileID: 5127667699692834470}
   m_Layer: 5
   m_HasEditorInfo: 1
-  m_Name: ScoreValue
+  m_Name: RankValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3649,7 +3662,7 @@ GameObject:
   - component: {fileID: 2178230441044375176}
   m_Layer: 5
   m_HasEditorInfo: 1
-  m_Name: ScoreIcon
+  m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4159,14 +4172,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4a25b0d1285714c9c246ac2d31e720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 0}
-  levelStatus: {fileID: 0}
-  goal: {fileID: 0}
-  score: {fileID: 0}
-  comboMagnification: {fileID: 0}
-  coinsMagnification: {fileID: 0}
-  finalScore: {fileID: 0}
-  rank: {fileID: 0}
+  level: {fileID: 8207857940709986816}
+  levelStatus: {fileID: 7356375625156814330}
+  goal: {fileID: 2234827435899677560}
+  score: {fileID: 3304404375828034329}
+  comboMagnification: {fileID: 5162456328273346644}
+  coinsMagnification: {fileID: 2001868075542142649}
+  finalScore: {fileID: 6726767501537481392}
+  rank: {fileID: 5127667699692834470}
 --- !u!1 &4844113705191311934
 GameObject:
   m_ObjectHideFlags: 0
@@ -4404,7 +4417,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000022888184}
+  m_AnchoredPosition: {x: 0, y: 0.000017166138}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &4903731457139265702
@@ -5210,7 +5223,7 @@ GameObject:
   - component: {fileID: 6140618780011619503}
   m_Layer: 5
   m_HasEditorInfo: 1
-  m_Name: ScorePanel (1)
+  m_Name: CoinPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5501,7 +5514,7 @@ GameObject:
   - component: {fileID: 2234827435899677560}
   m_Layer: 5
   m_HasEditorInfo: 1
-  m_Name: Goal (1)
+  m_Name: GoalValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7221,7 +7234,7 @@ GameObject:
   - component: {fileID: 7425474243162069498}
   m_Layer: 5
   m_HasEditorInfo: 1
-  m_Name: ScorePanel (2)
+  m_Name: FinalPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7606,7 +7619,7 @@ GameObject:
   - component: {fileID: 506756347909796768}
   m_Layer: 5
   m_HasEditorInfo: 1
-  m_Name: ScorePanel (4)
+  m_Name: ButtonPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

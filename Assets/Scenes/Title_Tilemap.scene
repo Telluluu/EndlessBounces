@@ -519,6 +519,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockScore: 50
+  fragileDecelerate: 0
+  breakFragileSpeed: 3
   blockType: 4
   direction: {x: 8.38, y: -1}
   force: 35
@@ -1471,6 +1473,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockScore: 50
+  fragileDecelerate: 0
+  breakFragileSpeed: 3
   blockType: 4
   direction: {x: 0, y: -1}
   force: 35
@@ -1806,6 +1810,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockScore: 50
+  fragileDecelerate: 0
+  breakFragileSpeed: 3
   blockType: 4
   direction: {x: 16.2, y: 1}
   force: 35
@@ -1968,6 +1974,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockScore: 50
+  fragileDecelerate: 0
+  breakFragileSpeed: 3
   blockType: 4
   direction: {x: -0.96, y: 2.2}
   force: 35
@@ -2134,6 +2142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockScore: 50
+  fragileDecelerate: 0
+  breakFragileSpeed: 3
   blockType: 4
   direction: {x: -1, y: 0}
   force: 35
@@ -2527,6 +2537,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockScore: 50
+  fragileDecelerate: 0
+  breakFragileSpeed: 3
   blockType: 4
   direction: {x: 16.2, y: 1}
   force: 35
@@ -13163,6 +13175,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockScore: 50
+  fragileDecelerate: 0
+  breakFragileSpeed: 3
   blockType: 0
 --- !u!1001 &2142617669
 PrefabInstance:
@@ -13535,7 +13549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6273109490554123029, guid: 9b1eee7f501b0f2449ef0c88b6921bb0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00006470874
+      value: 0.000036001205
       objectReference: {fileID: 0}
     - target: {fileID: 6388449049312466918, guid: 9b1eee7f501b0f2449ef0c88b6921bb0, type: 3}
       propertyPath: m_LocalRotation.x
