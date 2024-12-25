@@ -43,5 +43,10 @@ namespace Gamelogic
                 return _instance;
             }
         }
+
+        private void OnDestroy()
+        {
+            _instance = null;
+        }
     }
 }

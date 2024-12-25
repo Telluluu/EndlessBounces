@@ -47,7 +47,6 @@ namespace UI
 
         private void Init()
         {
-            Debug.Log("UI Init");
             infoText.text = "1-1";
             goalValue.text = Gamelogic.GameManager.Instance.goal.ToString();
             finalValue.text = "0";

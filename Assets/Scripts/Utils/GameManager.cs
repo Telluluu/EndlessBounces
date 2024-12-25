@@ -18,9 +18,11 @@ namespace Gamelogic
 
         private BallController _ball;
 
+        private bool isSettled = false;
+
         private void Awake()
         {
-            DontDestroyOnLoad(this);
+            // DontDestroyOnLoad(this);
             EventManager.Instance.onCoinCollected.AddListener(ResponToCoinCollected);
             EventManager.Instance.onScoreChanged.AddListener(ResponToScoreChanged);
             EventManager.Instance.onGameWin.AddListener(TestWin);
@@ -34,13 +36,16 @@ namespace Gamelogic
 
         private void Update()
         {
-            if (CalculateTotalScore() >= goal)
+            if (isSettled == false)
             {
-                EventManager.Instance.onGameWin.Invoke();
-            }
-            else if (_ball.isLaunched && _ball.isStopped)
-            {
-                EventManager.Instance.onGameLose.Invoke();
+                if (CalculateTotalScore() >= goal)
+                {
+                    EventManager.Instance.onGameWin.Invoke();
+                }
+                else if (_ball.isLaunched && _ball.isStopped)
+                {
+                    EventManager.Instance.onGameLose.Invoke();
+                }
             }
         }
 
@@ -62,7 +67,6 @@ namespace Gamelogic
 
         private void ResponToCoinCollected()
         {
-            Debug.Log("Coin Collected");
             this.getCoinCount += 1;
         }
 

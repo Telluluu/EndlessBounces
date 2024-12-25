@@ -71,7 +71,7 @@ namespace Gamelogic
             var dir = other.contacts[0].normal;
             var speedInDir = Vector2.Dot(rb.velocity, dir.normalized);
 
-            if (block.blockType != Block.BlockType.Interactable)
+            if (block.blockType == Block.BlockType.Solid)
             {
                 if (speedInDir < 2.0f)
                     return;

@@ -16,7 +16,6 @@ namespace Gamelogic
 
         private void Start()
         {
-            DontDestroyOnLoad(gameObject);
             EventManager.Instance.onTextPoped.AddListener(FloatingText);
         }
 
