@@ -48,11 +48,13 @@ namespace Gamelogic
 
     public class LeafSpringBlockEffect : MonoBehaviour, IBlockEffect
     {
+        public float force;
+
         void IBlockEffect.ApplyEffect(GameObject ball)
         {
             Debug.Log("Hit Leaf Spring Block");
             var rb = ball.GetComponent<Rigidbody2D>();
-            rb.velocity = rb.velocity.magnitude < 50.0f ? rb.velocity.normalized * 50.0f : rb.velocity;
+            rb.velocity = rb.velocity.magnitude < force ? rb.velocity.normalized * force : rb.velocity;
             EventManager.Instance.onScoreChanged.Invoke(100);
         }
     }

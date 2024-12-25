@@ -12,13 +12,19 @@ namespace Gamelogic
 
         public float force;
 
+        private TurnBlockEffect _turnBlockEffect;
+
         private void OnEnable()
         {
             base.blockType = BlockType.Interactable;
-            var turnBlockEffect = gameObject.AddComponent<TurnBlockEffect>();
-            turnBlockEffect.direction = transform.right;
-            turnBlockEffect.force = force;
-            base.blockEffect = turnBlockEffect;
+            _turnBlockEffect = gameObject.AddComponent<TurnBlockEffect>();
+            base.blockEffect = _turnBlockEffect;
+        }
+
+        private void Update()
+        {
+            _turnBlockEffect.direction = transform.right;
+            _turnBlockEffect.force = force;
         }
 
         private new void OnTriggerEnter2D(Collider2D collider)

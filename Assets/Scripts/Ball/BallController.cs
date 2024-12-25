@@ -27,18 +27,20 @@ namespace Gamelogic
 
         private void Update()
         {
+            if (isLaunched == false)
+                rb.velocity = Vector2.zero;
         }
 
         private void FixedUpdate()
         {
-            if (Keyboard.current.aKey.isPressed)
-            {
-                rb.AddForce(Vector2.left * force, ForceMode2D.Impulse);
-            }
-            if (Keyboard.current.dKey.isPressed)
-            {
-                rb.AddForce(Vector2.right * force, ForceMode2D.Impulse);
-            }
+            //if (Keyboard.current.aKey.isPressed)
+            //{
+            //    rb.AddForce(Vector2.left * force, ForceMode2D.Impulse);
+            //}
+            //if (Keyboard.current.dKey.isPressed)
+            //{
+            //    rb.AddForce(Vector2.right * force, ForceMode2D.Impulse);
+            //}
             if (rb.velocity.magnitude > speedLimit)
             {
                 // 平滑地将当前速度移动向目标速度
@@ -61,7 +63,7 @@ namespace Gamelogic
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            var dir = other.transform.position - transform.position;
+            var dir = other.contacts[0].normal;
             var speedInDir = Vector2.Dot(rb.velocity, dir.normalized);
             Block block = other.gameObject.GetComponent<Block>();
             if (block == null || block.blockType != Block.BlockType.Interactable)

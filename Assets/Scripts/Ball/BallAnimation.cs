@@ -34,13 +34,14 @@ public class BallAnimation : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        var dir = collision.transform.position - transform.position;
+        var dir = collision.contacts[0].normal;
 
-        if ((rb.velocity * dir.normalized).magnitude > 2.0f)
+        if (Vector2.Dot(dir, rb.velocity) > 5.0f)
         {
-            Vector2 direction = collision.contacts[0].point - (Vector2)transform.position;
+            Debug.Log("Normal: " + collision.contacts[0].normal);
+            Debug.Log(Vector2.Dot(dir, rb.velocity));
 
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90f;
 
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
