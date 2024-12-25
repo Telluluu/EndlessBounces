@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 94, y: -62}
+  m_AnchoredPosition: {x: 78, y: 4}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1334453639714395752
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c545484629f37a49bb19017d963694c, type: 2}
   m_sharedMaterial: {fileID: -3589571818994241156, guid: 2c545484629f37a49bb19017d963694c, type: 2}
@@ -170,7 +170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -42, y: -65}
+  m_AnchoredPosition: {x: -58, y: 1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &851363817528603175
@@ -302,9 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aada96cd3d55454faf8ef9aeff80075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wholeUIPanel: {fileID: 0}
   prefab: {fileID: 7247997465649545309, guid: fa612b335fe5d674392c0f1841eb182c, type: 3}
+  prefabCount: 3
   icon: {fileID: 5181292085430714645}
-  itemCount: {fileID: 3902887686862993980}
-  rawImage: {fileID: 0}
-  sceneCamera: {fileID: 0}
+  itemCountText: {fileID: 3902887686862993980}
