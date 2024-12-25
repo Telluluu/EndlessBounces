@@ -159,7 +159,7 @@ namespace UI
                     break;
             }
             this.coinsMagnification.text = Gamelogic.GameManager.Instance.CalculateCoinMagnification().ToString("F2");
-            finalValue.text = Gamelogic.GameManager.Instance.CalculateTotalScore().ToString("F2");
+            finalValue.text = Gamelogic.GameManager.Instance.CalculateTotalScore().ToString("F0");
         }
     }
 }
