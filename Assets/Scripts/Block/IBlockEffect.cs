@@ -58,9 +58,9 @@ namespace Gamelogic
         {
             var rb = ball.GetComponent<Rigidbody2D>();
             rb.velocity = rb.velocity.magnitude < force ? rb.velocity.normalized * force : rb.velocity;
-            Vector2 dir = this.transform.position - ball.transform.position;
-            float a = Vector2.Dot(dir, this.transform.up);
-            if (a < 0.0f)
+            Vector2 dir = ball.transform.position - this.transform.position;
+            float sign = Vector2.Dot(dir, this.transform.up);
+            if (sign < 0.0f)
             {
                 rb.velocity += (Vector2)this.transform.up * -verticalForce;
             }
