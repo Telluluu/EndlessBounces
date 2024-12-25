@@ -5,6 +5,7 @@ Shader "Unlit/SpriteOutline"
         _MainTex ("Texture", 2D) = "White" {}
         _lineWidth("lineWidth",Range(0,10)) = 1
         _lineColor("lineColor",Color)=(1,1,1,1)
+        _intensity("lineIntensity", float) = 1
     }
     // ---------------------------【子着色器】---------------------------
     SubShader
@@ -48,6 +49,7 @@ Shader "Unlit/SpriteOutline"
             float4 _MainTex_TexelSize;
             float _lineWidth;
             float4 _lineColor;
+            float _intensity;
 
             // Pixel Shader
             fixed4 frag (VertexOutput i) : SV_Target
@@ -65,7 +67,7 @@ Shader "Unlit/SpriteOutline"
                     //    col.rgb = _lineColor;
                 // }
                 // 和原图做插值
-                col.rgb = lerp(_lineColor,col.rgb,w);
+                col.rgb = lerp(_lineColor * _intensity,col.rgb,w);
                 return col;
             }
             ENDCG

@@ -41,24 +41,28 @@ namespace Gamelogic
             //Ray ray = _sceneCamera.ViewportPointToRay(uv);
             Vector3 worldPos = _sceneCamera.ScreenToWorldPoint(new Vector3(localPos.x, localPos.y, 0.0f));
             worldPos.z = 0.0f;
-            var hit = Physics2D.OverlapCircle(worldPos, 1.0f);
-            if (hit != null)
+            var hits = Physics2D.OverlapCircleAll(worldPos, 1.0f);
+            bool hitAnyUnit = false;
+            foreach (var hit in hits)
             {
-                Debug.Log("Hit " + hit.transform.name);
-                var unit = hit.gameObject.GetComponent<Gamelogic.Unit>();
-                if (unit != null)
+                if (hitAnyUnit)
+                    break;
+
+                if (hit != null)
                 {
-                    unit.Select();
-                }
-                else
-                {
-                    Debug.Log("No Unit");
-                    Gamelogic.Unit.UnSelectAll();
+                    Debug.Log("Hit " + hit.transform.name);
+                    var unit = hit.gameObject.GetComponent<Gamelogic.Unit>();
+                    if (unit != null)
+                    {
+                        unit.Select();
+                        hitAnyUnit = true;
+                    }
                 }
             }
-            else
+            if (hitAnyUnit == false)
             {
                 Debug.Log("No Hit");
+                Gamelogic.Unit.UnSelectAll();
             }
         }
     }

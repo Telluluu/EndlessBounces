@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class DragToInstantiate : MonoBehaviour, IDragHandler, IEndDragHandler
 {
-    public Transform wholeUIPanel;
+    public Transform rootUIPanel;
     public GameObject prefab;
     public GameObject icon;
     public TMP_Text itemCount;
@@ -20,9 +20,12 @@ public class DragToInstantiate : MonoBehaviour, IDragHandler, IEndDragHandler
     private void Start()
     {
         _iconRectTransform = icon.GetComponent<RectTransform>();
+        rootUIPanel = GameObject.Find("RootPanel").transform;
+        sceneCamera = GameObject.Find("GameScene Camera").GetComponent<Camera>();
+        rawImage = GameObject.Find("RawImage").GetComponent<RawImage>();
         _iconGO = Instantiate(icon);
-        _iconGO.transform.SetParent(wholeUIPanel);
-        _iconGO.transform.position = wholeUIPanel.transform.position + Vector3.right * 10000000.0f;
+        _iconGO.transform.SetParent(rootUIPanel);
+        _iconGO.transform.position = rootUIPanel.transform.position + Vector3.right * 10000000.0f;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -42,20 +45,45 @@ public class DragToInstantiate : MonoBehaviour, IDragHandler, IEndDragHandler
         if (uv.x < 0 || uv.x > 1 || uv.y < 0 || uv.y > 1)
         {
             Debug.Log("Out of RawImage bounds");
-            _iconGO.transform.position = wholeUIPanel.transform.position + Vector3.right * 10000000.0f;
+            HideIcon();
             return;
         }
-        // Vector3 ssVector = uv * rawImage.rectTransform.sizeDelta;
         Vector3 worldPos = sceneCamera.ScreenToWorldPoint(new Vector3(localPos.x, localPos.y, 0.0f));
         worldPos.z = 0.0f;
-        itemCount.text = (int.Parse(itemCount.text) - 1).ToString();
-        Instantiate(prefab, worldPos, Quaternion.identity);
 
-        _iconGO.transform.position = wholeUIPanel.transform.position + Vector3.right * 10000000.0f;
+        var hit = Physics2D.OverlapCircle(worldPos, 1.0f);
+        if (hit == null)
+        {
+            HideIcon();
+            return;
+        }
+        Debug.Log("Drag: Hit " + hit.transform.name);
+        var unit = hit.gameObject.GetComponent<Gamelogic.Unit>();
+        if (unit == null)
+        {
+            HideIcon();
+            return;
+        }
+
+        bool success = unit.GenerateUnitComponent(prefab);
+        if (success == false)
+        {
+            HideIcon();
+            return;
+        }
+
+        itemCount.text = (int.Parse(itemCount.text) - 1).ToString();
+
+        _iconGO.transform.position = rootUIPanel.transform.position + Vector3.right * 10000000.0f;
 
         if (int.Parse(itemCount.text) <= 0)
         {
             Destroy(gameObject);
         }
+    }
+
+    private void HideIcon()
+    {
+        _iconGO.transform.position = rootUIPanel.transform.position + Vector3.right * 10000000.0f;
     }
 }
