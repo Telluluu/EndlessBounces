@@ -52,11 +52,22 @@ namespace Gamelogic
     public class LeafSpringBlockEffect : MonoBehaviour, IBlockEffect
     {
         public float force;
+        public float verticalForce;
 
         void IBlockEffect.ApplyEffect(GameObject ball)
         {
             var rb = ball.GetComponent<Rigidbody2D>();
             rb.velocity = rb.velocity.magnitude < force ? rb.velocity.normalized * force : rb.velocity;
+            Vector2 dir = this.transform.position - ball.transform.position;
+            float a = Vector2.Dot(dir, this.transform.up);
+            if (a < 0.0f)
+            {
+                rb.velocity += (Vector2)this.transform.up * -verticalForce;
+            }
+            else
+            {
+                rb.velocity += (Vector2)this.transform.up * -verticalForce;
+            }
             EventManager.Instance.onScoreChanged.Invoke(100);
         }
     }

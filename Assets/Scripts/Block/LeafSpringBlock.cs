@@ -9,11 +9,14 @@ namespace Gamelogic
         private LeafSpringBlockEffect leafSpringBlockEffect;
         public float force = 50.0f;
 
+        public float verticalForce = 10.0f;
+
         private void OnEnable()
         {
             base.blockType = BlockType.Interactable;
             leafSpringBlockEffect = gameObject.AddComponent<LeafSpringBlockEffect>();
             leafSpringBlockEffect.force = force;
+            leafSpringBlockEffect.verticalForce = verticalForce;
             base.blockEffect = leafSpringBlockEffect;
         }
 
