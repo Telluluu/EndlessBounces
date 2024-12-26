@@ -25,7 +25,9 @@ namespace Gamelogic
         {
             var rb = ball.GetComponent<Rigidbody2D>();
             rb.velocity = rb.velocity * (1.0f - fragileDecelerate);
+
             EventManager.Instance.onScoreChanged.Invoke(300);
+            EventManager.Instance.onTextPoped.Invoke("300", 1.2f, Color.yellow);
             Destroy(this.gameObject);
         }
     }

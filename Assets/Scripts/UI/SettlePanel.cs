@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Gamelogic;
+using UnityEngine.UI;
 
 namespace GameUI
 {
@@ -17,6 +18,10 @@ namespace GameUI
         public TMP_Text finalScore;
         public TMP_Text rank;
 
+        public Button nextLevelButton;
+
+        public Button returnTitleButton;
+
         public void Settle()
         {
             var ui = transform.parent.GetComponent<UI>();
@@ -29,6 +34,9 @@ namespace GameUI
             coinsMagnification.text = ui.coinsMagnification.text;
             finalScore.text = ui.finalValue.text;
             rank.text = ui.rank.text;
+
+            nextLevelButton.onClick.AddListener(LevelManager.Instance.NextLevel);
+            returnTitleButton.onClick.AddListener(LevelManager.Instance.ReturnToTitle);
         }
     }
 }
