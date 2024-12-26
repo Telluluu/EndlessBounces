@@ -72,8 +72,6 @@ namespace Gamelogic
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            Debug.Log("Velocity = " + rb.velocity);
-
             Block block = other.gameObject.GetComponent<Block>();
             if (block == null)
                 return;
