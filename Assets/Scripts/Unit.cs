@@ -26,12 +26,15 @@ namespace Gamelogic
         {
             _sr = GetComponent<SpriteRenderer>();
             EventManager.Instance.onUnitSelected.AddListener(UnSelect);
-            GameObject child = transform.GetChild(0).gameObject;
-            if (child != null)
+            if (transform.childCount > 0)
             {
-                isPlaced = true;
-                _unitComSr = child.GetComponent<SpriteRenderer>();
-                _unitComSr.material = materialUnselected;
+                GameObject child = transform.GetChild(0).gameObject;
+                if (child != null)
+                {
+                    isPlaced = true;
+                    _unitComSr = child.GetComponent<SpriteRenderer>();
+                    _unitComSr.material = materialUnselected;
+                }
             }
         }
 
