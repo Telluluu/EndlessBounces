@@ -16,6 +16,9 @@ namespace Gamelogic
         public Material materialSelected;
         public Material materialUnselected;
 
+        public float rotateCd = 0.5f;
+        private float rotateTimer;
+
         private GameObject _unitCom;
         private SpriteRenderer _unitComSr;
 
@@ -36,13 +39,22 @@ namespace Gamelogic
         {
             if (isSelected)
             {
-                if (Keyboard.current.aKey.isPressed)
+                if (rotateTimer > rotateCd)
                 {
-                    transform.Rotate(0, 0, 1);
+                    if (Keyboard.current.aKey.isPressed)
+                    {
+                        transform.Rotate(0, 0, 1);
+                        rotateTimer = 0;
+                    }
+                    else if (Keyboard.current.dKey.isPressed)
+                    {
+                        transform.Rotate(0, 0, -1);
+                        rotateCd = 0;
+                    }
                 }
-                else if (Keyboard.current.dKey.isPressed)
+                else
                 {
-                    transform.Rotate(0, 0, -1);
+                    rotateTimer += Time.deltaTime;
                 }
             }
         }
