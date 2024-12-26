@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using Gamelogic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace GameUI
 {
@@ -29,7 +30,7 @@ namespace GameUI
                 returnTitleButton = GameObject.Find("ReturnButton").GetComponent<Button>();
 
             nextLevelButton.onClick.AddListener(LevelManager.Instance.NextLevel);
-            returnTitleButton.onClick.AddListener(LevelManager.Instance.ReturnToTitle);
+            returnTitleButton.onClick.AddListener(() => { transform.parent.GetComponent<GameUI.UI>().SelectLevel(); });
         }
 
         public void Settle()

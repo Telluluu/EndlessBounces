@@ -43,17 +43,21 @@ namespace GameUI
         public Button selectButton;
         public GameObject levelSelectPanel;
 
+        public GameObject items;
+        private BallController _ball;
+        private bool isStart = false;
+
         private void Start()
         {
             normalColor = coin_1.color;
             gotColor = new Color(coin_1.color.r, coin_1.color.g, coin_1.color.b, 255.0f);
-
+            _ball = GameObject.FindAnyObjectByType<BallController>();
             Init();
         }
 
         private void Init()
         {
-            infoText.text = "1-1";
+            //infoText.text = "1-1";
             goalValue.text = Gamelogic.GameManager.Instance.goal.ToString();
             finalValue.text = "0";
             comboMagnification.text = "x1.0";
@@ -76,9 +80,15 @@ namespace GameUI
             });
             selectButton.onClick.AddListener(() =>
             {
-                levelSelectPanel.SetActive(true);
-                this.transform.localScale = Vector3.zero;
+                SelectLevel();
             });
+            isStart = false;
+        }
+
+        public void SelectLevel()
+        {
+            levelSelectPanel.SetActive(true);
+            this.transform.localScale = Vector3.zero;
         }
 
         private void Update()
@@ -89,6 +99,16 @@ namespace GameUI
             finalValue.transform.rotation = Quaternion.Euler(originalRotation.x, originalRotation.y, shakeAngle);
             scoreValue.transform.rotation = Quaternion.Euler(originalRotation.x, originalRotation.y, shakeAngle);
             coinsMagnification.transform.rotation = Quaternion.Euler(originalRotation.x, originalRotation.y, shakeAngle);
+
+            if (isStart == false)
+            {
+                if (_ball.isLaunched)
+                {
+                    isStart = true;
+                    Debug.Log("Set items not active");
+                    items.SetActive(false);
+                }
+            }
         }
 
         private void UpdateRank()

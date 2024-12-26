@@ -19,6 +19,7 @@ namespace Gamelogic
 
         private GameObject _unitCom;
         private SpriteRenderer _unitComSr;
+        private BallController _ball;
 
         private void Start()
         {
@@ -34,29 +35,31 @@ namespace Gamelogic
                     _unitComSr.material = materialUnselected;
                 }
             }
+            _ball = FindAnyObjectByType<BallController>();
         }
 
         private void Update()
         {
             if (isSelected)
             {
-                if (rotateTimer > rotateCd)
-                {
-                    if (Keyboard.current.aKey.isPressed)
+                if (_ball.isLaunched == false)
+                    if (rotateTimer > rotateCd)
                     {
-                        transform.Rotate(0, 0, 1);
-                        rotateTimer = 0;
+                        if (Keyboard.current.aKey.isPressed)
+                        {
+                            transform.Rotate(0, 0, 1);
+                            rotateTimer = 0;
+                        }
+                        else if (Keyboard.current.dKey.isPressed)
+                        {
+                            transform.Rotate(0, 0, -1);
+                            rotateTimer = 0;
+                        }
                     }
-                    else if (Keyboard.current.dKey.isPressed)
+                    else
                     {
-                        transform.Rotate(0, 0, -1);
-                        rotateTimer = 0;
+                        rotateTimer += Time.deltaTime;
                     }
-                }
-                else
-                {
-                    rotateTimer += Time.deltaTime;
-                }
             }
         }
 

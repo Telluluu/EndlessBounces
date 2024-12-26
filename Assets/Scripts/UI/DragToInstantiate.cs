@@ -25,6 +25,7 @@ public class DragToInstantiate : MonoBehaviour, IBeginDragHandler, IDragHandler,
         sceneCamera = GameObject.Find("GameScene Camera").GetComponent<Camera>();
         rawImage = GameObject.Find("RawImage").GetComponent<RawImage>();
         itemCountText.text = prefabCount.ToString();
+        icon.GetComponent<Image>().sprite = prefab.GetComponent<SpriteRenderer>().sprite;
         _iconGO = Instantiate(icon);
         _iconGO.transform.SetParent(rootUIPanel);
         _iconGO.transform.position = rootUIPanel.transform.position + Vector3.right * 10000000.0f;
