@@ -23,9 +23,9 @@ namespace Gamelogic
 
         void IBlockEffect.ApplyEffect(GameObject ball)
         {
-            Debug.Log("Hit Fragile Block");
             var rb = ball.GetComponent<Rigidbody2D>();
             rb.velocity = rb.velocity * (1.0f - fragileDecelerate);
+            EventManager.Instance.onScoreChanged.Invoke(300);
             Destroy(this.gameObject);
         }
     }
@@ -34,7 +34,6 @@ namespace Gamelogic
     {
         void IBlockEffect.ApplyEffect(GameObject ball)
         {
-            Debug.Log("Hit Spike Block");
             Destroy(ball);
         }
     }
@@ -43,7 +42,6 @@ namespace Gamelogic
     {
         void IBlockEffect.ApplyEffect(GameObject ball)
         {
-            Debug.Log("Hit Stop Block");
             var rb = ball.GetComponent<Rigidbody2D>();
             rb.velocity = Vector2.zero;
         }
@@ -63,7 +61,6 @@ namespace Gamelogic
             float sign = Vector2.Dot(dir, upDir);
             if (Mathf.Abs(verticalForce) > 1e-6)
             {
-                Debug.Log("verticalForce = " + verticalForce);
                 if (sign > 0.0f)
                 {
                     rb.velocity += upDir * verticalForce;
