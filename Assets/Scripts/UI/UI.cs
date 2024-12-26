@@ -39,6 +39,10 @@ namespace GameUI
 
         public SettlePanel settlePanel;
 
+        public Button retryButton;
+        public Button selectButton;
+        public GameObject levelSelectPanel;
+
         private void Start()
         {
             normalColor = coin_1.color;
@@ -64,6 +68,13 @@ namespace GameUI
             Gamelogic.EventManager.Instance.onScoreChanged.AddListener(PopUpScoreDelta);
             Gamelogic.EventManager.Instance.onScoreChanged.AddListener(UpdateScoreInfo);
             Gamelogic.EventManager.Instance.onScoreChanged.AddListener((int deltaScore) => UpdateRank());
+
+            retryButton.onClick.AddListener(() => Gamelogic.LevelManager.Instance.Restart());
+            selectButton.onClick.AddListener(() =>
+            {
+                levelSelectPanel.SetActive(true);
+                this.transform.localScale = Vector3.zero;
+            });
         }
 
         private void Update()

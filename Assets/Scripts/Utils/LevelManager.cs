@@ -16,6 +16,9 @@ namespace Gamelogic
 
         public void NextLevel()
         {
+            var idx = SceneManager.GetActiveScene().buildIndex;
+            int nextIdx = idx + 1;
+            SceneManager.LoadSceneAsync(nextIdx);
         }
 
         public void ReturnToTitle()
@@ -25,14 +28,14 @@ namespace Gamelogic
             if (currentSceneName == "Scenes/Title_Tilemap")
                 Restart();
             else
-                SceneManager.LoadScene("Scenes/Title_Tilemap");
+                SceneManager.LoadSceneAsync("Scenes/Title_Tilemap");
         }
 
         public void Restart()
         {
             Debug.Log("Restart");
             string currentSceneName = SceneManager.GetActiveScene().name;
-            SceneManager.LoadScene(currentSceneName);
+            SceneManager.LoadSceneAsync(currentSceneName);
         }
     }
 }

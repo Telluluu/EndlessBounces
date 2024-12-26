@@ -32,6 +32,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/PhysicTest.scene
     guid: ed15fcdbf413c474e9a6e58eff9847c5
+  - enabled: 0
+    path: Assets/Scenes/Level1Test.scene
+    guid: bde1e2b8966d4db44b135358c13b5fc5
+  - enabled: 1
+    path: Assets/Scenes/1-2.scene
+    guid: ed516579758e71a49aa83298efe4f59a
   m_configObjects: {}
   m_SlimFeaturesWeixinMiniGame:
     AllocateOverhead: 1

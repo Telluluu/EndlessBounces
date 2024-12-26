@@ -4776,6 +4776,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e75eff11aed8344691cf2aea4c81cbf, type: 3}
+--- !u!114 &1199229657 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9040473122992499509, guid: 9b1eee7f501b0f2449ef0c88b6921bb0, type: 3}
+  m_PrefabInstance: {fileID: 2102189404}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1377622741
 GameObject:
   m_ObjectHideFlags: 0
@@ -4826,6 +4837,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1394230040 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5322386920985504534, guid: 9b1eee7f501b0f2449ef0c88b6921bb0, type: 3}
+  m_PrefabInstance: {fileID: 2102189404}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1555403556
 GameObject:
   m_ObjectHideFlags: 0
@@ -7199,6 +7221,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1757051690}
     - target: {fileID: 2876549515305287699, guid: 9b1eee7f501b0f2449ef0c88b6921bb0, type: 3}
+      propertyPath: nextLevelButton
+      value: 
+      objectReference: {fileID: 1394230040}
+    - target: {fileID: 2876549515305287699, guid: 9b1eee7f501b0f2449ef0c88b6921bb0, type: 3}
+      propertyPath: ReturnTitleButton
+      value: 
+      objectReference: {fileID: 1199229657}
+    - target: {fileID: 2876549515305287699, guid: 9b1eee7f501b0f2449ef0c88b6921bb0, type: 3}
+      propertyPath: returnTitleButton
+      value: 
+      objectReference: {fileID: 1199229657}
+    - target: {fileID: 2876549515305287699, guid: 9b1eee7f501b0f2449ef0c88b6921bb0, type: 3}
       propertyPath: coinsMagnification
       value: 
       objectReference: {fileID: 2024247746}
@@ -7344,7 +7378,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6273109490554123029, guid: 9b1eee7f501b0f2449ef0c88b6921bb0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0032095157
+      value: 0.00386549
       objectReference: {fileID: 0}
     - target: {fileID: 6346570550911979603, guid: 9b1eee7f501b0f2449ef0c88b6921bb0, type: 3}
       propertyPath: m_AnchorMax.y
