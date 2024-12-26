@@ -52,6 +52,7 @@ namespace Gamelogic
         private void TestWin()
         {
             Debug.Log("Win");
+            EventManager.Instance.onScoreChanged.Invoke(0);
             var rootPanel = GameObject.Find("RootPanel").GetComponent<GameUI.UI>();
             var ballRb = _ball.GetComponent<Rigidbody2D>();
             ballRb.isKinematic = true;
@@ -65,6 +66,7 @@ namespace Gamelogic
             Debug.Log("Lose");
             if (CalculateRank() == 0)
             {
+                EventManager.Instance.onScoreChanged.Invoke(0);
                 var rootPanel = GameObject.Find("RootPanel").GetComponent<GameUI.UI>();
                 var ballRb = _ball.GetComponent<Rigidbody2D>();
                 ballRb.isKinematic = true;
