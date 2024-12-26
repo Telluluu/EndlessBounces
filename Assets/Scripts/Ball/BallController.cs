@@ -81,6 +81,7 @@ namespace Gamelogic
                 else
                 {
                     EventManager.Instance.onScoreChanged.Invoke(block.blockScore);
+                    Audio.AudioManager.Instance.PlayFX("HitBlock");
                     // EventManager.Instance.onTextPoped.Invoke(block.blockScore.ToString(), 1.0f + combo / 3.0f);
                 }
             }

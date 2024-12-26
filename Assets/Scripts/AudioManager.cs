@@ -36,7 +36,6 @@ namespace Audio
 
         private void Start()
         {
-            DontDestroyOnLoad(this);
         }
 
         private void OnEnable()

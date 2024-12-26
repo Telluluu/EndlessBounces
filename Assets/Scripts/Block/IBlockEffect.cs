@@ -11,7 +11,6 @@ namespace Gamelogic
     {
         void IBlockEffect.ApplyEffect(GameObject ball)
         {
-            Audio.AudioManager.Instance.PlayFX("HitBlock");
         }
     }
 
