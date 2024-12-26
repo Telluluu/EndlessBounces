@@ -21,6 +21,8 @@ namespace Gamelogic
 
         public float getScoreSpeed = 4.0f;
 
+        private float stopTime = 0.0f;
+
         private void Start()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -52,6 +54,10 @@ namespace Gamelogic
             }
             else if (isLaunched && rb.velocity.magnitude < 0.1f)
             {
+                stopTime += Time.deltaTime;
+            }
+            if (stopTime > 1.0f)
+            {
                 rb.velocity = Vector2.zero;
                 isStopped = true;
             }
@@ -66,6 +72,8 @@ namespace Gamelogic
 
         private void OnCollisionEnter2D(Collision2D other)
         {
+            Debug.Log("Velocity = " + rb.velocity);
+
             Block block = other.gameObject.GetComponent<Block>();
             if (block == null)
                 return;
