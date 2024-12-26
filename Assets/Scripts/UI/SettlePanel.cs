@@ -24,6 +24,12 @@ namespace GameUI
 
         private void Start()
         {
+            if (nextLevelButton == null)
+                nextLevelButton = GameObject.Find("NextButton").GetComponent<Button>();
+
+            if (returnTitleButton == null)
+                returnTitleButton = GameObject.Find("ReturnButton").GetComponent<Button>();
+
             nextLevelButton.onClick.AddListener(LevelManager.Instance.NextLevel);
             returnTitleButton.onClick.AddListener(LevelManager.Instance.ReturnToTitle);
         }
