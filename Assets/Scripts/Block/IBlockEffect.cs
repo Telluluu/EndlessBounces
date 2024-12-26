@@ -57,17 +57,23 @@ namespace Gamelogic
         void IBlockEffect.ApplyEffect(GameObject ball)
         {
             var rb = ball.GetComponent<Rigidbody2D>();
-            rb.velocity = rb.velocity.magnitude < force ? rb.velocity.normalized * force : rb.velocity;
+            //rb.velocity = rb.velocity.magnitude < force ? rb.velocity.normalized * force : rb.velocity;
             Vector2 dir = ball.transform.position - this.transform.position;
-            float sign = Vector2.Dot(dir, this.transform.up);
-            if (sign < 0.0f)
+            Vector2 upDir = gameObject.transform.up;
+            float sign = Vector2.Dot(dir, upDir);
+            if (Mathf.Abs(verticalForce) > 1e-6)
             {
-                rb.velocity += (Vector2)this.transform.up * -verticalForce;
+                Debug.Log("verticalForce = " + verticalForce);
+                if (sign > 0.0f)
+                {
+                    rb.velocity += upDir * verticalForce;
+                }
+                else
+                {
+                    rb.velocity -= upDir * verticalForce;
+                }
             }
-            else
-            {
-                rb.velocity += (Vector2)this.transform.up * -verticalForce;
-            }
+            rb.velocity = rb.velocity.magnitude < force ? rb.velocity.normalized * force : rb.velocity;
             EventManager.Instance.onScoreChanged.Invoke(100);
         }
     }
