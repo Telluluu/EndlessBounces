@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DragToInstantiate : MonoBehaviour, IDragHandler, IEndDragHandler
+public class DragToInstantiate : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     private Transform rootUIPanel;
     public GameObject prefab;
@@ -30,6 +30,11 @@ public class DragToInstantiate : MonoBehaviour, IDragHandler, IEndDragHandler
         _iconGO.transform.position = rootUIPanel.transform.position + Vector3.right * 10000000.0f;
 
         icon.GetComponent<Image>().sprite = prefab.GetComponent<SpriteRenderer>().sprite;
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        Audio.AudioManager.Instance.PlayFX("Tap");
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -79,6 +84,8 @@ public class DragToInstantiate : MonoBehaviour, IDragHandler, IEndDragHandler
         itemCountText.text = (int.Parse(itemCountText.text) - 1).ToString();
 
         _iconGO.transform.position = rootUIPanel.transform.position + Vector3.right * 10000000.0f;
+
+        Audio.AudioManager.Instance.PlayFX("Tap");
 
         if (int.Parse(itemCountText.text) <= 0)
         {

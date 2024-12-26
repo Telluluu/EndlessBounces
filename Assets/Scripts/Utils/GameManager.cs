@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Gamelogic
 {
@@ -39,10 +40,12 @@ namespace Gamelogic
                 if (CalculateTotalScore() >= goal)
                 {
                     EventManager.Instance.onGameWin.Invoke();
+                    isSettled = true;
                 }
                 else if (_ball.isLaunched && _ball.isStopped)
                 {
                     EventManager.Instance.onGameLose.Invoke();
+                    isSettled = true;
                 }
             }
         }
@@ -57,6 +60,7 @@ namespace Gamelogic
             ballRb.velocity = Vector2.zero;
             rootPanel.settlePanel.gameObject.SetActive(true);
             rootPanel.settlePanel.Settle();
+            Audio.AudioManager.Instance.PlayFX("Settle");
         }
 
         private void TestLose()
@@ -71,6 +75,7 @@ namespace Gamelogic
                 ballRb.velocity = Vector2.zero;
                 rootPanel.settlePanel.gameObject.SetActive(true);
                 rootPanel.settlePanel.Settle();
+                Audio.AudioManager.Instance.PlayFX("Settle");
             }
             else
             {
@@ -87,6 +92,7 @@ namespace Gamelogic
         private void ResponToCoinCollected()
         {
             this.getCoinCount += 1;
+            Audio.AudioManager.Instance.PlayFX("getCoin");
         }
 
         private void ResponToScoreChanged(int scoreDelta)
@@ -99,6 +105,7 @@ namespace Gamelogic
             comboMagnification += 0.1f;
             comboMagnification = Mathf.Round(comboMagnification * 10) / 10f;
             EventManager.Instance.onTextPoped.Invoke("x" + comboMagnification.ToString(), 1.5f, Color.yellow);
+            Audio.AudioManager.Instance.PitchUpCoinFX();
         }
 
         public float CalculateCoinMagnification()

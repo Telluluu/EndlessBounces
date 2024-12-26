@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:yousandi.cn,2023:
+--- !u!1 &4125260948677036308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 7
+  m_Component:
+  - component: {fileID: 1865356405172550226}
+  - component: {fileID: 3621151406078042737}
+  m_Layer: 0
+  m_HasEditorInfo: 1
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1865356405172550226
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4125260948677036308}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3621151406078042737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4125260948677036308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430e0a4a56a30e647b46cf90e2e149dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idx: 6
+  audioTypes:
+  - source: {fileID: 0}
+    soundName: HitBlock
+    clip: {fileID: 8300000, guid: 51c2be49e71814f4fa4e30520e6111ef, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - source: {fileID: 0}
+    soundName: StopBlock
+    clip: {fileID: 8300000, guid: 7e8d2a55516a0104eaabcb2bb5db9b93, type: 3}
+    volume: 1
+    pitch: 2
+    loop: 0
+  - source: {fileID: 0}
+    soundName: LeafSpring
+    clip: {fileID: 8300000, guid: 29f242d92628f3143b7598020a759b80, type: 3}
+    volume: 0.5
+    pitch: 1.2
+    loop: 0
+  - source: {fileID: 0}
+    soundName: getCoin
+    clip: {fileID: 8300000, guid: ea7f9fed713bf3443a1a610f03f7e0f3, type: 3}
+    volume: 0.675
+    pitch: 1
+    loop: 0
+  - source: {fileID: 0}
+    soundName: Tap
+    clip: {fileID: 8300000, guid: c19f0746279b33b4ba32e83bd14a6d5d, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+  - source: {fileID: 0}
+    soundName: Restart
+    clip: {fileID: 8300000, guid: c19f0746279b33b4ba32e83bd14a6d5d, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+  - source: {fileID: 0}
+    soundName: Settle
+    clip: {fileID: 8300000, guid: 9d5af160d73a7a144903ed4042510e56, type: 3}
+    volume: 0.5
+    pitch: 0.75
+    loop: 0

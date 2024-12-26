@@ -11,6 +11,7 @@ namespace Gamelogic
     {
         void IBlockEffect.ApplyEffect(GameObject ball)
         {
+            Audio.AudioManager.Instance.PlayFX("HitBlock");
         }
     }
 
@@ -45,6 +46,7 @@ namespace Gamelogic
         {
             var rb = ball.GetComponent<Rigidbody2D>();
             rb.velocity = Vector2.zero;
+            Audio.AudioManager.Instance.PlayFX("StopBlock");
         }
     }
 
@@ -73,6 +75,7 @@ namespace Gamelogic
             }
             //rb.velocity = rb.velocity.magnitude < force ? rb.velocity.normalized * force : rb.velocity;
             EventManager.Instance.onScoreChanged.Invoke(100);
+            Audio.AudioManager.Instance.PlayFX("LeafSpring");
         }
     }
 

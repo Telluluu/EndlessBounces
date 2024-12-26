@@ -69,7 +69,11 @@ namespace GameUI
             Gamelogic.EventManager.Instance.onScoreChanged.AddListener(UpdateScoreInfo);
             Gamelogic.EventManager.Instance.onScoreChanged.AddListener((int deltaScore) => UpdateRank());
 
-            retryButton.onClick.AddListener(() => Gamelogic.LevelManager.Instance.Restart());
+            retryButton.onClick.AddListener(() =>
+            {
+                Gamelogic.LevelManager.Instance.Restart();
+                Audio.AudioManager.Instance.PlayFX("Tap");
+            });
             selectButton.onClick.AddListener(() =>
             {
                 levelSelectPanel.SetActive(true);
