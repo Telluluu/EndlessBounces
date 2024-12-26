@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.scene
     guid: bbb592f2d5987b64794b4dba5b7ca0fe
   - enabled: 1
+    path: Assets/Scenes/Title_New.scene
+    guid: 64c0ec2a9dc93b142a27d84914fd8ea6
+  - enabled: 0
     path: Assets/Scenes/Title_Tilemap.scene
     guid: 88cc5bad57faaaa46bbee05bf2c48ec1
   - enabled: 1

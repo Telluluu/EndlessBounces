@@ -107,6 +107,7 @@ MonoBehaviour:
   isPlaced: 0
   materialSelected: {fileID: 2100000, guid: 6171a614d049b044b91d7317b9f223d8, type: 2}
   materialUnselected: {fileID: 2100000, guid: 3fbeb453b76735740b324bd9fd2ff7c4, type: 2}
+  rotateCd: 0.02
 --- !u!58 &3269431755227437872
 CircleCollider2D:
   m_ObjectHideFlags: 0
