@@ -28,6 +28,8 @@ public class DragToInstantiate : MonoBehaviour, IDragHandler, IEndDragHandler
         _iconGO = Instantiate(icon);
         _iconGO.transform.SetParent(rootUIPanel);
         _iconGO.transform.position = rootUIPanel.transform.position + Vector3.right * 10000000.0f;
+
+        icon.GetComponent<Image>().sprite = prefab.GetComponent<SpriteRenderer>().sprite;
     }
 
     public void OnDrag(PointerEventData eventData)
