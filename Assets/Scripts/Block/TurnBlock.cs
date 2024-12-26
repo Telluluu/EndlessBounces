@@ -1,7 +1,5 @@
-using Gamelogic;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace Gamelogic
