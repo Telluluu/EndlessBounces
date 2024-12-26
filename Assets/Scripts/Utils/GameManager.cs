@@ -57,16 +57,25 @@ namespace Gamelogic
             ballRb.isKinematic = true;
             ballRb.velocity = Vector2.zero;
             rootPanel.settlePanel.gameObject.SetActive(true);
+            rootPanel.settlePanel.Settle();
         }
 
         private void TestLose()
         {
             Debug.Log("Lose");
-            var rootPanel = GameObject.Find("RootPanel").GetComponent<GameUI.UI>();
-            var ballRb = _ball.GetComponent<Rigidbody2D>();
-            ballRb.isKinematic = true;
-            ballRb.velocity = Vector2.zero;
-            rootPanel.settlePanel.gameObject.SetActive(true);
+            if (CalculateRank() == 0)
+            {
+                var rootPanel = GameObject.Find("RootPanel").GetComponent<GameUI.UI>();
+                var ballRb = _ball.GetComponent<Rigidbody2D>();
+                ballRb.isKinematic = true;
+                ballRb.velocity = Vector2.zero;
+                rootPanel.settlePanel.gameObject.SetActive(true);
+                rootPanel.settlePanel.Settle();
+            }
+            else
+            {
+                TestWin();
+            }
         }
 
         private void OnDisable()
@@ -117,6 +126,27 @@ namespace Gamelogic
         public float CalculateTotalScore()
         {
             return catapultScore * comboMagnification * CalculateCoinMagnification();
+        }
+
+        public int CalculateRank()
+        {
+            float percent = CalculateTotalScore() / goal;
+            if (percent < 0.6)
+            {
+                return 0;
+            }
+            else if (percent < 0.8)
+            {
+                return 1;
+            }
+            else if (percent < 0.99)
+            {
+                return 2;
+            }
+            else
+            {
+                return 3;
+            }
         }
     }
 }
