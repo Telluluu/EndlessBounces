@@ -20,14 +20,15 @@ namespace Gamelogic
     {
         public float fragileDecelerate = 1.0f;
         public float breakSpeed = 5.0f;
+        public int score;
 
         void IBlockEffect.ApplyEffect(GameObject ball)
         {
             var rb = ball.GetComponent<Rigidbody2D>();
             rb.velocity = rb.velocity * (1.0f - fragileDecelerate);
 
-            EventManager.Instance.onScoreChanged.Invoke(300);
-            EventManager.Instance.onTextPoped.Invoke("300", 1.2f, Color.yellow);
+            EventManager.Instance.onScoreChanged.Invoke(score);
+            EventManager.Instance.onTextPoped.Invoke(score.ToString(), 1.2f, Color.yellow);
             Destroy(this.gameObject);
         }
     }

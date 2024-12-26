@@ -39,6 +39,7 @@ namespace Gamelogic
                 case BlockType.Fragile:
                     var fragile = gameObject.AddComponent<FragileBlockEffect>();
                     fragile.fragileDecelerate = fragileDecelerate;
+                    fragile.score = blockScore;
                     blockEffect = fragile;
                     break;
 
