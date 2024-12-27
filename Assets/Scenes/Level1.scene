@@ -4160,6 +4160,7 @@ MonoBehaviour:
   blockType: 0
   direction: {x: 0.77, y: 0.21}
   force: 25
+  preview: 0
 --- !u!483693784 &363840974
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -5169,7 +5170,7 @@ MonoBehaviour:
   maxCoinCount: 3
   catapultScore: 0
   comboMagnification: 1
-  goal: 20000
+  goal: 15000
 --- !u!4 &1009609796
 Transform:
   m_ObjectHideFlags: 0
@@ -7802,7 +7803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6273109490554123029, guid: 9b1eee7f501b0f2449ef0c88b6921bb0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0032013282
+      value: 0.0032012574
       objectReference: {fileID: 0}
     - target: {fileID: 6346570550911979603, guid: 9b1eee7f501b0f2449ef0c88b6921bb0, type: 3}
       propertyPath: m_AnchorMax.y

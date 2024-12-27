@@ -4180,13 +4180,14 @@ MonoBehaviour:
   coinsMagnification: {fileID: 2001868075542142649}
   finalScore: {fileID: 6726767501537481392}
   rank: {fileID: 5127667699692834470}
-  nextLevelButton: {fileID: 0}
-  returnTitleButton: {fileID: 0}
+  nextLevelButton: {fileID: 5322386920985504534}
+  returnTitleButton: {fileID: 9040473122992499509}
   scoreSpeed: 1
   scoreFields:
   - {fileID: 3304404375828034329}
-  - {fileID: 2001868075542142649}
   - {fileID: 6726767501537481392}
+  nextLevelSprite: {fileID: 21300000, guid: 4dbf9ef58ff9a284daf1783b8b809258, type: 3}
+  retrySprite: {fileID: 21300000, guid: dff40c26ddec79a43994b59d8a3890e9, type: 3}
 --- !u!1 &4844113705191311934
 GameObject:
   m_ObjectHideFlags: 0
@@ -6417,7 +6418,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dff40c26ddec79a43994b59d8a3890e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f781e84aa8dbf34498728cf692357312, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

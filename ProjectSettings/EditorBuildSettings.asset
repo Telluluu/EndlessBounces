@@ -47,6 +47,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/1-4.scene
     guid: 78ca82b2274124b4cb92e7f43b35d6c5
+  - enabled: 1
+    path: Assets/Scenes/1-5.scene
+    guid: 93fa99fa0b8768642a42d0dc00315b8b
+  - enabled: 1
+    path: Assets/Scenes/1-6.scene
+    guid: 22c7f8bf514052a4c9407f32e9e08f64
+  - enabled: 1
+    path: Assets/Scenes/tk.scene
+    guid: e10e54f38cbd499478493737d8d58e0a
   m_configObjects: {}
   m_SlimFeaturesWeixinMiniGame:
     AllocateOverhead: 1

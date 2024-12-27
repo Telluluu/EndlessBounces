@@ -25,6 +25,9 @@ namespace GameUI
         public float scoreSpeed = 1f;
         public TMP_Text[] scoreFields;
 
+        public Sprite nextLevelSprite;
+        public Sprite retrySprite;
+
         private void Start()
         {
             if (nextLevelButton == null)
@@ -33,8 +36,13 @@ namespace GameUI
             if (returnTitleButton == null)
                 returnTitleButton = GameObject.Find("ReturnButton").GetComponent<Button>();
 
-            nextLevelButton.onClick.AddListener(LevelManager.Instance.NextLevel);
+            //nextLevelButton.onClick.AddListener(LevelManager.Instance.NextLevel);
             returnTitleButton.onClick.AddListener(() => { transform.parent.GetComponent<GameUI.UI>().SelectLevel(); });
+        }
+
+        private void OnDisable()
+        {
+            nextLevelButton.onClick.RemoveAllListeners();
         }
 
         public void Settle()
@@ -42,8 +50,19 @@ namespace GameUI
             var ui = transform.parent.GetComponent<UI>();
 
             level.text = ui.infoText.text;
+            bool isClear = GameManager.Instance.CalculateRank() > 0;
+            levelStatus.text = isClear ? "Clear" : "Lose";
+            if (isClear)
+            {
+                nextLevelButton.onClick.AddListener(LevelManager.Instance.NextLevel);
+                nextLevelButton.GetComponent<Image>().sprite = nextLevelSprite;
+            }
+            else
+            {
+                nextLevelButton.onClick.AddListener(LevelManager.Instance.Restart);
+                nextLevelButton.GetComponent<Image>().sprite = retrySprite;
+            }
 
-            levelStatus.text = GameManager.Instance.CalculateRank() > 0 ? "Clear" : "Lose";
             goal.text = ui.goalValue.text;
             score.text = ui.scoreValue.text;
             comboMagnification.text = ui.comboMagnification.text;
