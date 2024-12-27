@@ -2064,8 +2064,8 @@ RectTransform:
   m_GameObject: {fileID: 1655081747710310803}
   m_LocalRotation: {x: -0, y: -0, z: -0.18590388, w: 0.98256797}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3326088378855511504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -21.428}
@@ -2392,7 +2392,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c545484629f37a49bb19017d963694c, type: 2}
   m_sharedMaterial: {fileID: -3589571818994241156, guid: 2c545484629f37a49bb19017d963694c, type: 2}
@@ -2875,7 +2875,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c545484629f37a49bb19017d963694c, type: 2}
   m_sharedMaterial: {fileID: -3589571818994241156, guid: 2c545484629f37a49bb19017d963694c, type: 2}
