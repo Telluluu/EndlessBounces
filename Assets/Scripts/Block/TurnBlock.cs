@@ -12,6 +12,8 @@ namespace Gamelogic
 
         private TurnBlockEffect _turnBlockEffect;
 
+        public bool preview = false;
+
         private void OnEnable()
         {
             base.blockType = BlockType.Interactable;
@@ -32,6 +34,7 @@ namespace Gamelogic
 
         private void OnDrawGizmos()
         {
+            //if (!preview) return;
             Gizmos.color = Color.red;
             // Gizmos.DrawLine(transform.position, transform.position + (Vector3)direction * 5.0f);
             Gizmos.DrawLine(transform.position, transform.position + transform.right * 5.0f);
