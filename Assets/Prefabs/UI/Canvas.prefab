@@ -1859,7 +1859,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 64.45
+  m_fontSize: 71.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1994,7 +1994,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 66.2
+  m_fontSize: 57.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2129,7 +2129,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.75
+  m_fontSize: 50
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4182,6 +4182,11 @@ MonoBehaviour:
   rank: {fileID: 5127667699692834470}
   nextLevelButton: {fileID: 0}
   returnTitleButton: {fileID: 0}
+  scoreSpeed: 1
+  scoreFields:
+  - {fileID: 3304404375828034329}
+  - {fileID: 2001868075542142649}
+  - {fileID: 6726767501537481392}
 --- !u!1 &4844113705191311934
 GameObject:
   m_ObjectHideFlags: 0
@@ -6088,7 +6093,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 68.35
+  m_fontSize: 71.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7997,7 +8002,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3902887686862993980, guid: 6a99d8fe676712a448a42463b43e76fd, type: 3}
       propertyPath: m_fontSize
-      value: 44.75
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5721127849126192721, guid: 6a99d8fe676712a448a42463b43e76fd, type: 3}
       propertyPath: m_Pivot.x
@@ -8103,7 +8108,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3902887686862993980, guid: 6a99d8fe676712a448a42463b43e76fd, type: 3}
       propertyPath: m_fontSize
-      value: 44.75
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5721127849126192721, guid: 6a99d8fe676712a448a42463b43e76fd, type: 3}
       propertyPath: m_Pivot.x
@@ -8209,7 +8214,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3902887686862993980, guid: 6a99d8fe676712a448a42463b43e76fd, type: 3}
       propertyPath: m_fontSize
-      value: 44.75
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5721127849126192721, guid: 6a99d8fe676712a448a42463b43e76fd, type: 3}
       propertyPath: m_Pivot.x
@@ -8315,7 +8320,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3902887686862993980, guid: 6a99d8fe676712a448a42463b43e76fd, type: 3}
       propertyPath: m_fontSize
-      value: 44.75
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5721127849126192721, guid: 6a99d8fe676712a448a42463b43e76fd, type: 3}
       propertyPath: m_Pivot.x
@@ -8421,7 +8426,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3902887686862993980, guid: 6a99d8fe676712a448a42463b43e76fd, type: 3}
       propertyPath: m_fontSize
-      value: 44.75
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5721127849126192721, guid: 6a99d8fe676712a448a42463b43e76fd, type: 3}
       propertyPath: m_Pivot.x
@@ -8527,7 +8532,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3902887686862993980, guid: 6a99d8fe676712a448a42463b43e76fd, type: 3}
       propertyPath: m_fontSize
-      value: 44.75
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5721127849126192721, guid: 6a99d8fe676712a448a42463b43e76fd, type: 3}
       propertyPath: m_Pivot.x
