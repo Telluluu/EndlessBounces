@@ -47,7 +47,7 @@ namespace Gamelogic
                 //rb.velocity = Vector2.MoveTowards(rb.velocity, targetVelocity, decelerationRate * Time.deltaTime);
                 rb.velocity = rb.velocity.normalized * speedLimit;
             }
-            else if (isLaunched && rb.velocity.magnitude < 0.1f)
+            else if (isLaunched && rb.velocity.magnitude < 0.5f)
             {
                 stopTime += Time.deltaTime;
             }
