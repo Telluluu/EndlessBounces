@@ -155,7 +155,7 @@ namespace GameUI
         private void PopUpCoinDelta()
         {
             float deltaCoinMagnification = Gamelogic.GameManager.Instance.CalculateCoinMagnification() - float.Parse(coinsMagnification.text);
-            TextPoper.Instance.FloatingText(coinsMagnificationPopTrans, "+" + deltaCoinMagnification.ToString("F2"), 1.0f, Color.white);
+            TextPoper.Instance.FloatingText(coinsMagnificationPopTrans, "+" + deltaCoinMagnification.ToString("F2"), 2.0f, Color.yellow);
 
             float deltaFinalScore = Gamelogic.GameManager.Instance.CalculateTotalScore() - float.Parse(finalValue.text);
             TextPoper.Instance.FloatingText(finalValuePopTrans, "+" + deltaFinalScore.ToString("F0"), 1.0f, Color.white);

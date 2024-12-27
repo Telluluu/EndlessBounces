@@ -104,7 +104,7 @@ namespace Gamelogic
         {
             comboMagnification += 0.1f;
             comboMagnification = Mathf.Round(comboMagnification * 10) / 10f;
-            EventManager.Instance.onTextPoped.Invoke("x" + comboMagnification.ToString(), 1.5f, Color.yellow);
+            EventManager.Instance.onTextPoped.Invoke("x" + comboMagnification.ToString(), 2.5f, Color.yellow);
             Audio.AudioManager.Instance.PitchUpCoinFX();
         }
 
